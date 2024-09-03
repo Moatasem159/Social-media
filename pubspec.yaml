@@ -5,6 +5,8 @@ version: 1.0.0+1
 environment:
   sdk: ^3.5.1
 dependencies:
+  flutter_localizations:
+    sdk: flutter
   flutter:
     sdk: flutter
   # Contains code to deal with internationalized/localized messages.
@@ -49,6 +51,7 @@ dev_dependencies:
   # flutter lints contains a set of recommended lints to encourage good coding practices.
   flutter_lints: ^4.0.0
 flutter:
+  generate: true
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   # assets:
