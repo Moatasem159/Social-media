@@ -12,5 +12,5 @@ extension ThemesExtension on BuildContext {
 }
 ///Extension for app localizations.
 extension LocalizationExtentions on BuildContext {
-  AppLocalizations get local => AppLocalizations.of(this)!;
+  AppLocalizations get locale => AppLocalizations.of(this)!;
 }
