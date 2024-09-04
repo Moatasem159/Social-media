@@ -14,16 +14,24 @@ class AppTheme {
     scaffoldBackgroundColor: AppColor.lightScaffoldBackground,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        elevation: 5,
         backgroundColor: AppColor.lightPrimaryColor,
         foregroundColor: AppColor.darkPrimaryColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-        fixedSize: const Size(double.infinity, 40),
+        fixedSize: const Size(double.maxFinite, 40),
         textStyle: _labelLarge,
       ),
     ),
     textTheme: const TextTheme(
       labelMedium: _labelLarge,
     ),
+    checkboxTheme: CheckboxThemeData(
+        splashRadius: 15,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),),
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        visualDensity: VisualDensity.compact,
+      ),
 
   );
 
@@ -36,19 +44,25 @@ class AppTheme {
     scaffoldBackgroundColor: AppColor.darkScaffoldBackground,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        elevation: 5,
         backgroundColor: AppColor.darkPrimaryColor,
         foregroundColor: AppColor.lightPrimaryColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-        fixedSize: const Size(double.infinity, 40),
+        fixedSize: const Size(double.maxFinite, 40),
         textStyle: _labelLarge,
       ),
     ),
     textTheme: const TextTheme(
       labelMedium: _labelLarge,
     ),
+    checkboxTheme: CheckboxThemeData(
+        splashRadius: 15,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5),),
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        visualDensity: VisualDensity.compact,
+      ),
   );
-
-
   static const TextStyle _labelLarge =  TextStyle(
     fontFamily:"beVietnamPro",
     fontSize: 16,

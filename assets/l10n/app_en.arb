@@ -2,5 +2,16 @@
   "socialfy": "Socialfy",
   "letsStart": "Let's Start",
   "welcomeTo": "Welcome to ",
-  "welcomeDialog": " – The social hub where every connection sparks creativity, every moment becomes a story, and every voice is heard"
+  "welcomeDialog": " – The social hub where every connection sparks creativity, every moment becomes a story, and every voice is heard",
+  "signInToSocialfy": "Sign in to Socialfy",
+  "signInWithFaceBook": "Sign in with Facebook",
+  "signInWithGoogle": "Sign in with Google",
+  "or": "Or",
+  "email": "Email",
+  "password": "Password",
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot Password?",
+  "doesNotHaveAccount": "Doesn't have account ? ",
+  "signUp": "Sign Up",
+  "signIn": "Sign In"
 }
