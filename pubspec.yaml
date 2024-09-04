@@ -31,6 +31,8 @@ dependencies:
   cached_network_image: ^3.4.1
   # Converts already built widgets into skeleton loaders
   skeletonizer: ^1.4.2
+  # An SVG rendering and widget library for Flutter.
+  flutter_svg: ^2.0.10+1
   # Default icons asset for Cupertino widgets based on Apple styled icons.
   cupertino_icons: ^1.0.8
 dev_dependencies:
@@ -55,6 +57,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/images/icons/
 
   fonts:
    - family: beVietnamPro
@@ -108,6 +111,8 @@ flutter:
 
 flutter_gen:
   output: lib/core/utils/
+  integrations:
+    flutter_svg: true
   assets:
     enabled: true
     outputs:

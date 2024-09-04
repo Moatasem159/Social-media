@@ -12,7 +12,7 @@ class _WelcomeDialog extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14),
           child: Text.rich(
-            style: context.theme.textTheme.titleMedium!.copyWith(
+            style: context.titleMedium.copyWith(
               fontWeight: FontWeight.w400,
             ),
             TextSpan(
@@ -20,9 +20,9 @@ class _WelcomeDialog extends StatelessWidget {
               children: [
                 TextSpan(
                   text: context.locale.socialfy,
-                  style: const TextStyle(
-                    color: Colors.blue,
+                  style: context.titleMedium.copyWith(
                     fontWeight: FontWeight.w700,
+                    color: Colors.blue,
                   ),
                 ),
                 TextSpan(text: context.locale.welcomeDialog),
