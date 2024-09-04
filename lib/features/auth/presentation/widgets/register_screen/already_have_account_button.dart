@@ -16,7 +16,7 @@ class _AlreadyHaveAccountButton extends StatelessWidget {
               decorationColor: Colors.blue,
             ),
             recognizer: TapGestureRecognizer()
-              ..onTap = () => LoginRoute().push(context),
+              ..onTap = () => context.pop(),
           ),
         ],
       ),

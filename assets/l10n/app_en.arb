@@ -28,5 +28,10 @@
   "upperLetter": "At least 1 uppercase letter",
   "specialLetter": "At least 1 special character",
   "numberNum": "At least 1 number",
-  "numberCount": "At least 8 characters long"
+  "numberCount": "At least 8 characters long",
+  "required":   "required",
+  "invalidEmailFormat": "Invalid email format",
+  "invalidPhoneFormat": "Invalid phone number",
+  "invalidName": "Name can only contain alphabetic characters and spaces",
+  "passwordsDoNotMatch": "Passwords do not match"
 }
