@@ -1,5 +1,7 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:social_media/bloc_observer.dart';
 import 'package:social_media/core/api/env.dart';
 import 'package:social_media/core/api/network_info.dart';
 import 'package:social_media/features/auth/data/repositories/register_repository_impl.dart';
@@ -11,6 +13,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 final GetIt getIt = GetIt.instance;
 
 Future<void> setUpGetIt() async {
+  Bloc.observer=AppBlocObserver();
   await _initializeSupabase();
   await _setupNetworkChecker();
   await _setupRegisterDependencies();

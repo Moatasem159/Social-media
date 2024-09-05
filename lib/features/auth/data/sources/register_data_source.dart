@@ -12,6 +12,7 @@ class RegisterDataSourceImpl implements RegisterDataSource {
     return await client.auth.signUp(
       password: password,
       email: email,
+
     );
   }
 }

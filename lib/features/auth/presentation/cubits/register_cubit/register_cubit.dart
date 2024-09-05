@@ -10,16 +10,15 @@ class RegisterCubit extends Cubit<RegisterStates> {
 
   RegisterCubit(this._emailAndPasswordUsecase) : super(RegisterInitialState());
 
-  emitRegisterStates() async {
+  emitRegisterStates({required String email,required String password}) async {
     emit(RegisterLoadingState());
     ApiResult<AuthResponse> response =
-        await _emailAndPasswordUsecase(email: "", password: "");
-
-    emit(
-      switch (response) {
-        ApiSuccess<AuthResponse>() => RegisterSuccessState(),
-        ApiFailure<AuthResponse>() => RegisterErrorState(),
-      },
-    );
+        await _emailAndPasswordUsecase(email: email, password: password);
+    switch (response) {
+      case ApiSuccess<AuthResponse>():
+        emit(RegisterSuccessState(response.data));
+      case ApiFailure<AuthResponse>():
+        emit(RegisterErrorState());
+    }
   }
 }
