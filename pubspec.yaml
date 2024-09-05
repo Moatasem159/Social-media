@@ -35,6 +35,8 @@ dependencies:
   flutter_svg: ^2.0.10+1
   # Default icons asset for Cupertino widgets based on Apple styled icons.
   cupertino_icons: ^1.0.8
+  # A library designed for seamless internet connectivity checks.
+  internet_connection_checker: ^2.0.0
 dev_dependencies:
   # A build system for Dart code generation and modular compilation.
   build_runner: ^2.4.12
