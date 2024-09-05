@@ -35,7 +35,7 @@ class _RegisterFormState extends State<_RegisterForm> {
     _passwordController = TextEditingController();
     _passwordController.addListener(_passwordListener);
     _confirmPasswordController = TextEditingController();
-    _autoValidateMode = AutovalidateMode.onUserInteraction;
+    _autoValidateMode = AutovalidateMode.disabled;
     _hasLowercase = false;
     _hasUppercase = false;
     _hasSpecialCharacters = false;
