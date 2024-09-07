@@ -1,4 +1,6 @@
 
+import 'package:social_media/core/api/error_handler.dart';
+
 sealed class ApiResult<T>{
   const ApiResult();
 }
@@ -8,5 +10,6 @@ final class ApiSuccess<T> extends ApiResult<T>{
   const ApiSuccess({required this.data});
 }
 final class ApiFailure<T> extends ApiResult<T>{
-  const ApiFailure();
+  final ErrorHandler errorHandler;
+  const ApiFailure({required this.errorHandler});
 }

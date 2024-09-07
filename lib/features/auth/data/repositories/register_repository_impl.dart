@@ -1,4 +1,5 @@
 import 'package:social_media/core/api/api_result.dart';
+import 'package:social_media/core/api/error_handler.dart';
 import 'package:social_media/core/api/network_info.dart';
 import 'package:social_media/features/auth/data/sources/register_data_source.dart';
 import 'package:social_media/features/auth/domain/repositories/register_repository.dart';
@@ -13,11 +14,11 @@ class RegisterRepositoryImpl implements RegisterRepository {
       try {
         final AuthResponse response =await _registerDataSource.createUserWithEmailAndPassword(email,password);
         return ApiSuccess(data: response);
-      } catch (error) {
-        return const ApiFailure();
+      }  catch (error) {
+        return ApiFailure(errorHandler: ErrorHandler.handle(error));
       }
     } else {
-      return const ApiFailure();
+      return ApiFailure(errorHandler: ErrorHandler.handle("connection error"));
     }
   }
 }

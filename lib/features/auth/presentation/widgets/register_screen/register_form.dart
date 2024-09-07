@@ -95,7 +95,7 @@ class _RegisterFormState extends State<_RegisterForm> {
     return GestureDetector(
       onTap: onTap,
       child: Icon(
-        isObscure ? Icons.visibility_off_rounded : Icons.visibility_rounded,
+        !isObscure ? Icons.visibility_off_rounded : Icons.visibility_rounded,
       ),
     );
   }
@@ -116,7 +116,7 @@ class _RegisterFormState extends State<_RegisterForm> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<RegisterCubit, RegisterStates>(
-      listener: (context, state) {},
+      listener: context.read<RegisterCubit>().listener,
       child: Form(
         key: _formKey,
         child: Column(

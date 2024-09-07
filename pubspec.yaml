@@ -3,7 +3,7 @@ description: "social media app with supabase"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 environment:
-  sdk: ^3.5.1
+  sdk: ^3.5.2
 dependencies:
   flutter_localizations:
     sdk: flutter
