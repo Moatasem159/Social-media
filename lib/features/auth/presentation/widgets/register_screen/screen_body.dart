@@ -7,6 +7,7 @@ import 'package:social_media/core/extensions/spacing.dart';
 import 'package:social_media/core/utils/input_validation.dart';
 import 'package:social_media/core/widgets/main_button.dart';
 import 'package:social_media/core/extensions/context_extensions.dart';
+import 'package:social_media/features/auth/data/models/user_data_model.dart';
 import 'package:social_media/features/auth/presentation/cubits/register_cubit/register_cubit.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_text_form_field.dart';
 part 'password_validations.dart';

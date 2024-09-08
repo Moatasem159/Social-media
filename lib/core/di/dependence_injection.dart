@@ -13,7 +13,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 final GetIt getIt = GetIt.instance;
 
 Future<void> setUpGetIt() async {
-  Bloc.observer=AppBlocObserver();
+  Bloc.observer = AppBlocObserver();
   await _initializeSupabase();
   await _setupNetworkChecker();
   await _setupRegisterDependencies();

@@ -16,6 +16,7 @@ class _RegisterFormState extends State<_RegisterForm> {
   late final TextEditingController _passwordController;
   late final TextEditingController _confirmPasswordController;
   late AutovalidateMode _autoValidateMode;
+  late DateTime dateOfBirth;
   late bool _hasLowercase;
   late bool _hasUppercase;
   late bool _hasSpecialCharacters;
@@ -87,6 +88,7 @@ class _RegisterFormState extends State<_RegisterForm> {
       lastDate: DateTime(2010),
     );
     if (picked != null) {
+      dateOfBirth = picked;
       _dateController.text = "${picked.day}/${picked.month}/${picked.year}";
     }
   }
@@ -106,10 +108,13 @@ class _RegisterFormState extends State<_RegisterForm> {
         _autoValidateMode = AutovalidateMode.always;
       });
     } else {
-      context.read<RegisterCubit>().emitRegisterStates(
-            email: _emailController.text,
-            password: _passwordController.text,
-          );
+      UserCredintial user = UserCredintial(
+          email: _emailController.text,
+          password: _passwordController.text,
+          username: _nameController.text,
+          phoneNumber: _phoneNumberController.text,
+          dateOfBirth: dateOfBirth);
+      context.read<RegisterCubit>().emitRegisterStates(user: user);
     }
   }
 

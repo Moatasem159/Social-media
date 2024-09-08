@@ -6,8 +6,7 @@ abstract class RegisterDataSource {
 
 class RegisterDataSourceImpl implements RegisterDataSource {
   @override
-  Future<AuthResponse> createUserWithEmailAndPassword(
-      String email, String password) async {
+  Future<AuthResponse> createUserWithEmailAndPassword(String email, String password) async {
     final SupabaseClient client = Supabase.instance.client;
     return await client.auth.signUp(
       password: password,
