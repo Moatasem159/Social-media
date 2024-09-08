@@ -40,6 +40,8 @@ dependencies:
 dev_dependencies:
   # A build system for Dart code generation and modular compilation.
   build_runner: ^2.4.12
+  # The Flutter code generator for your assets.
+  flutter_gen_runner: ^5.7.0
   # Code generation for immutable classes that has a simple syntax/API without compromising on the features.
   freezed: ^2.5.7
   # Automatically generate code for converting to and from JSON by annotating Dart classes.
