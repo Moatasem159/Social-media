@@ -93,15 +93,6 @@ class _RegisterFormState extends State<_RegisterForm> {
     }
   }
 
-  Widget _suffix(VoidCallback onTap, bool isObscure) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Icon(
-        !isObscure ? Icons.visibility_off_rounded : Icons.visibility_rounded,
-      ),
-    );
-  }
-
   _signUp() {
     if (!_formKey.currentState!.validate()) {
       setState(() {
@@ -184,7 +175,10 @@ class _RegisterFormState extends State<_RegisterForm> {
               textInputAction: TextInputAction.next,
               controller: _passwordController,
               autoValidateMode: _autoValidateMode,
-              suffix: _suffix(_changePasswordObscure, _isPasswordObscure),
+              suffix: PasswordSuffix(
+                onTap: _changePasswordObscure,
+                isObscure: _isPasswordObscure,
+              ),
               validator: (String? password) =>
                   InputValidator.validatePassword(password!, context),
             ),
@@ -195,8 +189,10 @@ class _RegisterFormState extends State<_RegisterForm> {
               textInputAction: TextInputAction.done,
               controller: _confirmPasswordController,
               autoValidateMode: _autoValidateMode,
-              suffix: _suffix(
-                  _changeConfirmPasswordObscure, _isConfirmPasswordObscure),
+              suffix: PasswordSuffix(
+                onTap: _changeConfirmPasswordObscure,
+                isObscure: _isConfirmPasswordObscure,
+              ),
               validator: (String? confirmPassword) =>
                   InputValidator.validateConfirmPassword(
                       confirmPassword!, _passwordController.text, context),

@@ -27,12 +27,17 @@ class RegisterCubit extends Cubit<RegisterStates> {
   }
 
   listener(context, state) {
+    if(state is RegisterSuccessState){
+      //TODO: action after register done.
+    }
     if (state is RegisterErrorState) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(state.error.message),
-        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-      ));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(state.error.message),
+          margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+        ),
+      );
     }
   }
 }

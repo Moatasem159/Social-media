@@ -10,6 +10,7 @@ import 'package:social_media/core/extensions/context_extensions.dart';
 import 'package:social_media/features/auth/data/models/user_data_model.dart';
 import 'package:social_media/features/auth/presentation/cubits/register_cubit/register_cubit.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_text_form_field.dart';
+import 'package:social_media/features/auth/presentation/widgets/password_suffix.dart';
 part 'password_validations.dart';
 part 'screen_title.dart';
 part 'register_form.dart';

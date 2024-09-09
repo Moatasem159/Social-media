@@ -1,12 +1,16 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:social_media/core/extensions/context_extensions.dart';
 import 'package:social_media/core/extensions/spacing.dart';
 import 'package:social_media/core/routing/app_router.dart';
 import 'package:social_media/core/utils/assets.gen.dart';
+import 'package:social_media/core/utils/input_validation.dart';
 import 'package:social_media/core/widgets/main_button.dart';
+import 'package:social_media/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_text_form_field.dart';
+import 'package:social_media/features/auth/presentation/widgets/password_suffix.dart';
 part 'screen_title.dart';
 
 part 'sign_in_button.dart';

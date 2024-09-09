@@ -10,7 +10,7 @@ class RegisterRepositoryImpl implements RegisterRepository {
   final NetworkInfo _networkInfo;
   final RegisterDataSource _registerDataSource;
 
-  RegisterRepositoryImpl(this._registerDataSource, this._networkInfo);
+  const RegisterRepositoryImpl(this._registerDataSource, this._networkInfo);
 
   @override
   Future<ApiResult<AuthResponse>> signup({required UserCredintial user}) async {
