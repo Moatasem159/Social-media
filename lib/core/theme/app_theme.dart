@@ -26,13 +26,18 @@ class AppTheme {
       labelMedium: _labelLarge,
     ),
     checkboxTheme: CheckboxThemeData(
-        splashRadius: 15,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),),
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        visualDensity: VisualDensity.compact,
+      splashRadius: 15,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5),
       ),
-
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      visualDensity: VisualDensity.compact,
+    ),
+    snackBarTheme: const SnackBarThemeData(
+      behavior: SnackBarBehavior.floating,
+      dismissDirection: DismissDirection.horizontal,
+      elevation: 5,
+    ),
   );
 
   ///Dark theme data.
@@ -56,15 +61,21 @@ class AppTheme {
       labelMedium: _labelLarge,
     ),
     checkboxTheme: CheckboxThemeData(
-        splashRadius: 15,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),),
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        visualDensity: VisualDensity.compact,
+      splashRadius: 15,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5),
       ),
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      visualDensity: VisualDensity.compact,
+    ),
+    snackBarTheme: const SnackBarThemeData(
+      behavior: SnackBarBehavior.floating,
+      dismissDirection: DismissDirection.horizontal,
+      elevation: 5,
+    ),
   );
-  static const TextStyle _labelLarge =  TextStyle(
-    fontFamily:"beVietnamPro",
+  static const TextStyle _labelLarge = TextStyle(
+    fontFamily: "beVietnamPro",
     fontSize: 16,
     height: 1,
   );

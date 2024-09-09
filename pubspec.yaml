@@ -3,7 +3,7 @@ description: "social media app with supabase"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 environment:
-  sdk: ^3.5.1
+  sdk: ^3.5.2
 dependencies:
   flutter_localizations:
     sdk: flutter
@@ -35,9 +35,13 @@ dependencies:
   flutter_svg: ^2.0.10+1
   # Default icons asset for Cupertino widgets based on Apple styled icons.
   cupertino_icons: ^1.0.8
+  # A library designed for seamless internet connectivity checks.
+  internet_connection_checker: ^2.0.0
 dev_dependencies:
   # A build system for Dart code generation and modular compilation.
   build_runner: ^2.4.12
+  # The Flutter code generator for your assets.
+  flutter_gen_runner: ^5.7.0
   # Code generation for immutable classes that has a simple syntax/API without compromising on the features.
   freezed: ^2.5.7
   # Automatically generate code for converting to and from JSON by annotating Dart classes.
