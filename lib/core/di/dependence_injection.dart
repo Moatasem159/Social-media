@@ -11,6 +11,7 @@ import 'package:social_media/features/auth/data/sources/register_data_source.dar
 import 'package:social_media/features/auth/domain/repositories/login_repository.dart';
 import 'package:social_media/features/auth/domain/repositories/register_repository.dart';
 import 'package:social_media/features/auth/domain/usecases/login_with_email_and_password_usecase.dart';
+import 'package:social_media/features/auth/domain/usecases/login_with_google_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/register_with_email_and_password_usecase.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -61,5 +62,8 @@ _setupLoginDependencies() async {
   );
   getIt.registerLazySingleton<LoginWithEmailAndPasswordUsecase>(
     () => LoginWithEmailAndPasswordUsecase(getIt()),
+  );
+  getIt.registerLazySingleton<LoginWithGoogleUsecaseUsecase>(
+    () => LoginWithGoogleUsecaseUsecase(getIt()),
   );
 }

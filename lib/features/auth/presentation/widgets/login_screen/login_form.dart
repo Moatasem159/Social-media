@@ -39,7 +39,7 @@ class _LoginFormState extends State<_LoginForm> {
 
   _signIn() {
     if (_formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates(
+      context.read<LoginCubit>().emitLoginWithEmailAndPasswordStates(
           email: _emailController.text,
           password: _passwordController.text,
           rememberMe: _rememberMe);

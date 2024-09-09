@@ -1,19 +1,24 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/core/api/api_result.dart';
 import 'package:social_media/core/api/error_handler.dart';
 import 'package:social_media/features/auth/domain/usecases/login_with_email_and_password_usecase.dart';
+import 'package:social_media/features/auth/domain/usecases/login_with_google_usecase.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginStates> {
   final LoginWithEmailAndPasswordUsecase _loginWithEmailAndPasswordUsecase;
+  final LoginWithGoogleUsecaseUsecase _loginWithGoogleUsecaseUsecase;
 
-  LoginCubit(this._loginWithEmailAndPasswordUsecase)
+  LoginCubit(this._loginWithEmailAndPasswordUsecase,
+      this._loginWithGoogleUsecaseUsecase)
       : super(const LoginInitialState());
 
-  emitLoginStates(
+  emitLoginWithEmailAndPasswordStates(
       {required String email,
       required String password,
       bool rememberMe = false}) async {
@@ -29,8 +34,21 @@ class LoginCubit extends Cubit<LoginStates> {
     }
   }
 
+  emitLoginWithGoogleStates({bool rememberMe = false}) async {
+    ///TODO: add remember me feature.
+    emit(const LoginLoadingState());
+    ApiResult<AuthResponse> response = await _loginWithGoogleUsecaseUsecase();
+    switch (response) {
+      case ApiSuccess<AuthResponse>():
+        log(response.data.toString());
+        emit(const LoginSuccessState());
+      case ApiFailure<AuthResponse>():
+        emit(LoginErrorState(response.errorHandler.apiError));
+    }
+  }
+
   listener(context, state) {
-    if(state is LoginSuccessState){
+    if (state is LoginSuccessState) {
       //TODO: action after login done.
     }
     if (state is LoginErrorState) {

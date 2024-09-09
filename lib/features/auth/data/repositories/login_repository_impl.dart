@@ -22,4 +22,18 @@ class LoginRepositoryImpl implements LoginRepository {
       return ApiFailure(errorHandler: ErrorHandler.handle("connection error"));
     }
   }
+
+  @override
+  Future<ApiResult<AuthResponse>> signInWithGoogle() async{
+    if (await _networkInfo.isConnected) {
+      try {
+        final AuthResponse response = await _loginDataSource.googleSignIn();
+        return ApiSuccess(data: response);
+      } catch (error) {
+        return ApiFailure(errorHandler: ErrorHandler.handle(error));
+      }
+    } else {
+      return ApiFailure(errorHandler: ErrorHandler.handle("connection error"));
+    }
+  }
 }

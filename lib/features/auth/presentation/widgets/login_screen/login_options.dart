@@ -1,6 +1,8 @@
 part of 'screen_body.dart';
+
 class _LoginOptions extends StatelessWidget {
   const _LoginOptions();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,7 +19,7 @@ class _LoginOptions extends StatelessWidget {
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
           title: context.locale.signInWithGoogle,
-          onTap: () {},
+          onTap: context.read<LoginCubit>().emitLoginWithGoogleStates,
         ),
       ],
     );

@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LoginCubit>(
-      create: (context) => LoginCubit(getIt()),
+      create: (context) => LoginCubit(getIt(),getIt()),
       child: AnnotatedRegion(
         value: AppTheme.systemUiOverlayStyle(context),
         child: const SafeArea(
