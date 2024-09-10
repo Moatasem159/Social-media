@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:social_media/core/routing/animations_route/slide_from_right_to_left.dart';
-import 'package:social_media/features/auth/presentation/screens/login_screen.dart';
+import 'package:social_media/features/auth/presentation/screens/auth_screen.dart';
 import 'package:social_media/features/auth/presentation/screens/register_screen.dart';
 import 'package:social_media/features/auth/presentation/screens/welcome_screen.dart';
 part 'app_router.g.dart';
@@ -18,7 +18,7 @@ class InitialRoute extends GoRouteData {
 class LoginRoute extends GoRouteData {
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
-    return SlideFromRightToLeft(child: const LoginScreen());
+    return SlideFromRightToLeft(child: const AuthScreen());
   }
 }
 @TypedGoRoute<RegisterRoute>(path: '/registerRoute')

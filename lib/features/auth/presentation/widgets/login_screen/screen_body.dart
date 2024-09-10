@@ -9,44 +9,38 @@ import 'package:social_media/core/utils/assets.gen.dart';
 import 'package:social_media/core/utils/input_validation.dart';
 import 'package:social_media/core/widgets/main_button.dart';
 import 'package:social_media/features/auth/presentation/cubits/login_cubit/login_cubit.dart';
+import 'package:social_media/features/auth/presentation/widgets/auth_screen/login_view/remember_me_button.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_text_form_field.dart';
 import 'package:social_media/features/auth/presentation/widgets/password_suffix.dart';
 part 'screen_title.dart';
-
 part 'sign_in_button.dart';
-
 part 'or_divider.dart';
-
 part 'does_not_have_account_button.dart';
-
 part 'login_options.dart';
-
 part 'forgot_password_button.dart';
-part 'remember_me_button.dart';
 part 'login_form.dart';
 class LoginScreenBody extends StatelessWidget {
   const LoginScreenBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: FocusScope.of(context).unfocus,
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              verticalSpace(120),
-              const _LoginScreenTitle(),
-              verticalSpace(20),
-              const _LoginOptions(),
-              verticalSpace(15),
-              const _OrDivider(),
-              verticalSpace(10),
-              const _LoginForm(),
-              verticalSpace(20),
-            ],
-          ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 18),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            verticalSpace(10),
+            const _LoginScreenTitle(),
+            verticalSpace(20),
+            const _LoginOptions(),
+            verticalSpace(15),
+            const _OrDivider(),
+            verticalSpace(10),
+            const _LoginForm(),
+            verticalSpace(10),
+          ],
         ),
       ),
     );

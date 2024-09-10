@@ -5,6 +5,7 @@ import 'package:social_media/core/extensions/context_extensions.dart';
   class AuthTextFormField extends StatelessWidget {
     final String? hintText;
     final Widget? suffix;
+    final IconData? prefix;
     final TextEditingController? controller;
     final TextInputAction? textInputAction;
     final TextInputType? textInputType;
@@ -27,7 +28,7 @@ import 'package:social_media/core/extensions/context_extensions.dart';
       this.onTap,
       this.validator,
       this.inputFormatters,
-      this.autoValidateMode,
+      this.autoValidateMode, this.prefix,
     });
 
     @override
@@ -53,9 +54,9 @@ import 'package:social_media/core/extensions/context_extensions.dart';
           keyboardType: textInputType,
           decoration: InputDecoration(
             isDense: true,
-            isCollapsed: true,
+            isCollapsed: false,
             hintText: hintText,
-            hintStyle: context.labelMedium.copyWith(color: Colors.grey),
+            hintStyle: context.labelLarge.copyWith(color: Colors.grey),
             border: border,
             errorBorder: border,
             focusedBorder: border,
@@ -63,8 +64,8 @@ import 'package:social_media/core/extensions/context_extensions.dart';
             suffixIcon: suffix,
             suffixIconConstraints: const BoxConstraints(
               minWidth: 50.0,
-
             ),
+            prefixIcon: prefix!=null?Icon(prefix):null,
             contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
           ),
         ),

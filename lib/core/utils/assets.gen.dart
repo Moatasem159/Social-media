@@ -32,19 +32,27 @@ class $AssetsImagesGen {
 class $AssetsImagesIconsGen {
   const $AssetsImagesIconsGen();
 
-  /// File path: assets/images/icons/facebookIcon.svg
-  SvgGenImage get facebookIcon =>
-      const SvgGenImage('assets/images/icons/facebookIcon.svg');
+  /// File path: assets/images/icons/facebook_logo.svg
+  SvgGenImage get facebookLogo =>
+      const SvgGenImage('assets/images/icons/facebook_logo.svg');
 
   /// File path: assets/images/icons/googleIcon.svg
   SvgGenImage get googleIcon =>
       const SvgGenImage('assets/images/icons/googleIcon.svg');
 
+  /// File path: assets/images/icons/icons8-facebook.svg
+  SvgGenImage get icons8Facebook =>
+      const SvgGenImage('assets/images/icons/icons8-facebook.svg');
+
+  /// File path: assets/images/icons/x_logo.svg
+  SvgGenImage get xLogo => const SvgGenImage('assets/images/icons/x_logo.svg');
+
   /// Directory path: assets/images/icons
   String get path => 'assets/images/icons';
 
   /// List of all assets
-  List<SvgGenImage> get values => [facebookIcon, googleIcon];
+  List<SvgGenImage> get values =>
+      [facebookLogo, googleIcon, icons8Facebook, xLogo];
 }
 
 class AppAssets {

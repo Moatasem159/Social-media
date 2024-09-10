@@ -19,11 +19,11 @@ class AppTheme {
         foregroundColor: AppColor.darkPrimaryColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         fixedSize: const Size(double.maxFinite, 40),
-        textStyle: _labelLarge,
+        textStyle: _labelMedium,
       ),
     ),
     textTheme: const TextTheme(
-      labelMedium: _labelLarge,
+      labelMedium: _labelMedium,
     ),
     checkboxTheme: CheckboxThemeData(
       splashRadius: 15,
@@ -38,6 +38,13 @@ class AppTheme {
       dismissDirection: DismissDirection.horizontal,
       elevation: 5,
     ),
+    tabBarTheme: TabBarTheme(
+        indicatorColor: AppColor.lightPrimaryColor,
+        indicatorSize: TabBarIndicatorSize.tab,
+        labelColor: AppColor.lightPrimaryColor,
+        labelPadding: const EdgeInsets.symmetric(vertical: 6),
+        overlayColor: const WidgetStatePropertyAll(Colors.black12),
+        unselectedLabelColor: Colors.grey),
   );
 
   ///Dark theme data.
@@ -54,11 +61,11 @@ class AppTheme {
         foregroundColor: AppColor.lightPrimaryColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         fixedSize: const Size(double.maxFinite, 40),
-        textStyle: _labelLarge,
+        textStyle: _labelMedium,
       ),
     ),
     textTheme: const TextTheme(
-      labelMedium: _labelLarge,
+      labelMedium: _labelMedium,
     ),
     checkboxTheme: CheckboxThemeData(
       splashRadius: 15,
@@ -73,8 +80,16 @@ class AppTheme {
       dismissDirection: DismissDirection.horizontal,
       elevation: 5,
     ),
+    tabBarTheme: TabBarTheme(
+      indicatorColor: AppColor.darkPrimaryColor,
+      indicatorSize: TabBarIndicatorSize.tab,
+      labelColor: AppColor.darkPrimaryColor,
+      labelPadding: const EdgeInsets.symmetric(vertical: 6),
+      unselectedLabelColor: Colors.grey,
+      overlayColor: const WidgetStatePropertyAll(Colors.white12),
+    ),
   );
-  static const TextStyle _labelLarge = TextStyle(
+  static const TextStyle _labelMedium = TextStyle(
     fontFamily: "beVietnamPro",
     fontSize: 16,
     height: 1,

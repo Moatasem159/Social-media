@@ -1,4 +1,7 @@
-part of 'screen_body.dart';
+
+import 'package:flutter/material.dart';
+import 'package:social_media/core/extensions/context_extensions.dart';
+import 'package:social_media/core/extensions/spacing.dart';
 
 class RememberMeCheckbox extends StatefulWidget {
   const RememberMeCheckbox({super.key, required this.onChanged});

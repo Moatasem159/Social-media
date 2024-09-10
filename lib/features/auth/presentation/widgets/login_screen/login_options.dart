@@ -8,7 +8,7 @@ class _LoginOptions extends StatelessWidget {
     return Column(
       children: [
         _SignInButton(
-          icon: AppAssets.images.icons.facebookIcon.path,
+          icon: AppAssets.images.icons.facebookLogo.path,
           backgroundColor: Colors.blue[700]!,
           foregroundColor: Colors.white,
           title: context.locale.signInWithFaceBook,

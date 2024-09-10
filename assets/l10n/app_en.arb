@@ -1,6 +1,7 @@
 {
   "socialfy": "Socialfy",
   "letsStart": "Let's Start",
+  "welcomeToSocialfy": "Welcome to Socialfy",
   "welcomeTo": "Welcome to ",
   "welcomeDialog": " – The social hub where every connection sparks creativity, every moment becomes a story, and every voice is heard",
   "signInToSocialfy": "Sign in to Socialfy",
@@ -9,7 +10,9 @@
   "signInWithGoogle": "Sign in with Google",
   "or": "Or",
   "email": "Email",
+  "enterYourEmail": "Enter your email",
   "password": "Password",
+  "enterYourPassword": "Enter your password",
   "name": "Name",
   "phoneNumber": "Phone number",
   "confirmPassword": "Confirm Password",
@@ -19,7 +22,30 @@
   "doesNotHaveAccount": "Doesn't have account ? ",
   "alreadyHaveAnAccount": "Already have an account ? ",
   "signUp": "Sign Up",
+  "login": "Login",
+  "signOut": "Sign out",
   "signIn": "Sign In",
+  "orContinueWith": "Or Continue with email",
+  "loginWithProvider": "{provider, select, login {Login} other {Login with {provider}}}",
+  "@loginWithProvider": {
+    "description": "Login text that includes provider name if provided, otherwise 'Login'",
+    "placeholders": {
+      "provider": {
+        "type": "String",
+        "example": "Google"
+      }
+    }
+  },
+  "signUpWithProvider": "{provider, select, signUp {Sign Up} other {Sign Up with {provider}}}",
+  "@signUpWithProvider": {
+    "description": "Sign up text that includes provider name if provided, otherwise 'sign up'",
+    "placeholders": {
+      "provider": {
+        "type": "String",
+        "example": "Google"
+      }
+    }
+  },
   "registerPolicyText": "By signing up, you agree to our ",
   "termsOfService": "Terms of Service",
   "and": " and ",
@@ -34,4 +60,5 @@
   "invalidPhoneFormat": "Invalid phone number",
   "invalidName": "Name can only contain alphabetic characters and spaces",
   "passwordsDoNotMatch": "Passwords do not match"
+
 }
