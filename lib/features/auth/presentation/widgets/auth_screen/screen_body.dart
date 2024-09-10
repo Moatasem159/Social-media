@@ -41,19 +41,16 @@ class AuthScreenBody extends StatelessWidget {
           ),
         ];
       },
-      body: GestureDetector(
-        onTap: FocusScope.of(context).unfocus,
-        child: const TabBarView(
-          physics: NeverScrollableScrollPhysics(),
-          children: [
-            LoginView(
-              key: ValueKey("loginView"),
-            ),
-            SignUpView(
-              key: ValueKey("signUpView"),
-            ),
-          ],
-        ),
+      body: const TabBarView(
+        physics: NeverScrollableScrollPhysics(),
+        children: [
+          LoginView(
+            key: ValueKey("loginView"),
+          ),
+          SignUpView(
+            key: ValueKey("signUpView"),
+          ),
+        ],
       ),
     );
   }

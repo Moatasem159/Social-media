@@ -54,7 +54,7 @@ import 'package:social_media/core/extensions/context_extensions.dart';
           keyboardType: textInputType,
           decoration: InputDecoration(
             isDense: true,
-            isCollapsed: false,
+            isCollapsed: true,
             hintText: hintText,
             hintStyle: context.labelLarge.copyWith(color: Colors.grey),
             border: border,

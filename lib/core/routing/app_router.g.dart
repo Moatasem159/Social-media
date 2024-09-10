@@ -8,8 +8,7 @@ part of 'app_router.dart';
 
 List<RouteBase> get $appRoutes => [
       $initialRoute,
-      $loginRoute,
-      $registerRoute,
+      $authRoute,
     ];
 
 RouteBase get $initialRoute => GoRouteData.$route(
@@ -34,38 +33,16 @@ extension $InitialRouteExtension on InitialRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $loginRoute => GoRouteData.$route(
-      path: '/loginRoute',
-      factory: $LoginRouteExtension._fromState,
+RouteBase get $authRoute => GoRouteData.$route(
+      path: '/AuthRoute',
+      factory: $AuthRouteExtension._fromState,
     );
 
-extension $LoginRouteExtension on LoginRoute {
-  static LoginRoute _fromState(GoRouterState state) => LoginRoute();
+extension $AuthRouteExtension on AuthRoute {
+  static AuthRoute _fromState(GoRouterState state) => AuthRoute();
 
   String get location => GoRouteData.$location(
-        '/loginRoute',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-RouteBase get $registerRoute => GoRouteData.$route(
-      path: '/registerRoute',
-      factory: $RegisterRouteExtension._fromState,
-    );
-
-extension $RegisterRouteExtension on RegisterRoute {
-  static RegisterRoute _fromState(GoRouterState state) => RegisterRoute();
-
-  String get location => GoRouteData.$location(
-        '/registerRoute',
+        '/AuthRoute',
       );
 
   void go(BuildContext context) => context.go(location);

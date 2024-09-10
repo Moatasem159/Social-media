@@ -8,14 +8,17 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion(
       value: AppTheme.systemUiOverlayStyle(context).copyWith(
-        systemNavigationBarColor:context.theme.scaffoldBackgroundColor.withOpacity(0.9)
+        systemNavigationBarColor:context.isDark?const Color(0xff101012):const Color(0xffdce0e6),
       ),
       child: DefaultTabController(
         length: 2,
-        child: SafeArea(
-          child: Scaffold(
-            backgroundColor: context.theme.scaffoldBackgroundColor.withOpacity(0.9),
-            body: const AuthScreenBody()
+        child: GestureDetector(
+          onTap: FocusScope.of(context).unfocus,
+          child: SafeArea(
+            child: Scaffold(
+              backgroundColor: context.isDark?const Color(0xff101012):const Color(0xffdce0e6),
+              body: const AuthScreenBody()
+            ),
           ),
         ),
       ),

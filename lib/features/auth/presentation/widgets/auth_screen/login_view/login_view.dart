@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/extensions/spacing.dart';
-import 'package:social_media/features/auth/presentation/widgets/auth_screen/login_view/continue_with_email.dart';
+import 'package:social_media/features/auth/presentation/widgets/auth_screen/continue_with_email.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_screen/login_view/login_with_email_form.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_screen/login_view/login_with_providers.dart';
 class LoginView extends StatelessWidget {

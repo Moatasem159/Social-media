@@ -47,46 +47,24 @@ class InputValidator {
         return context.locale.required;
       }
       if (!hasLowerCase(password)) {
-        return context.locale.required;
+        return context.locale.lowerLetter;
       }
       if (!hasUpperCase(password)) {
-        return context.locale.required;
+        return context.locale.upperLetter;
       }
       if (!hasNumber(password)) {
-        return context.locale.required;
+        return context.locale.numberNum;
       }
       if (!hasSpecialCharacter(password)) {
-        return context.locale.required;
+        return context.locale.specialLetter;
       }
       if (!hasMinLength(password)) {
-        return context.locale.required;
+        return context.locale.numberCount;
       }
     } else {
       if (password.isEmpty) {
         return context.locale.required;
       }
-    }
-    return null;
-  }
-
-  /// Validate [confirmPassword]
-  static String? validateConfirmPassword(
-      String confirmPassword, String password, BuildContext context) {
-    if (confirmPassword.isEmpty) {
-      return context.locale.required;
-    }
-
-    if (confirmPassword != password) {
-      return context.locale.passwordsDoNotMatch;
-    }
-
-    return null;
-  }
-
-  /// Validate [date]
-  static String? validateDate(String date, BuildContext context) {
-    if (date.isEmpty) {
-      return context.locale.required;
     }
     return null;
   }

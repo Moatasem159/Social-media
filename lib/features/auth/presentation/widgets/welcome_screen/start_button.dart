@@ -14,7 +14,7 @@ class _StartButton extends StatelessWidget {
           child: MainButton(
             icon: Icons.arrow_forward_rounded,
             title: context.locale.letsStart,
-            onTap: () => LoginRoute().go(context),
+            onTap: () => AuthRoute().go(context),
           ),
         ),
       ),

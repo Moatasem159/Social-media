@@ -3,8 +3,12 @@ import 'package:social_media/core/extensions/context_extensions.dart';
 import 'package:social_media/core/extensions/spacing.dart';
 import 'package:social_media/core/utils/assets.gen.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_screen/sign_with_provider_button.dart';
-class LoginWithProviders extends StatelessWidget {
-  const LoginWithProviders({super.key});
+
+class SignUpWithProviders extends StatelessWidget {
+  const SignUpWithProviders({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
@@ -16,7 +20,7 @@ class LoginWithProviders extends StatelessWidget {
               icon: AppAssets.images.icons.googleIcon.path,
               backgroundColor: Colors.white,
               foregroundColor: Colors.black,
-              title: context.locale.loginWithProvider("Google"),
+              title: context.locale.signUpWithProvider("Google"),
               onTap: () {}),
           verticalSpace(8),
           SignWithProviderButton(
@@ -25,7 +29,7 @@ class LoginWithProviders extends StatelessWidget {
             icon: AppAssets.images.icons.icons8Facebook.path,
             backgroundColor: const Color(0xff0866ff),
             foregroundColor: Colors.white,
-            title: context.locale.loginWithProvider("Facebook"),
+            title: context.locale.signUpWithProvider("Facebook"),
             onTap: () {},
           ),
           verticalSpace(8),
@@ -36,7 +40,7 @@ class LoginWithProviders extends StatelessWidget {
               backgroundColor: Colors.black,
               foregroundColor: Colors.white,
               iconColor: Colors.white,
-              title: context.locale.loginWithProvider("X"),
+              title: context.locale.signUpWithProvider("X"),
               onTap: () {}),
           verticalSpace(18),
         ],
