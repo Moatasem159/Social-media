@@ -3,5 +3,5 @@ import 'package:social_media/features/auth/data/models/user_data_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract class RegisterRepository {
-  Future<ApiResult<AuthResponse>> signup({required UserCredintial user});
+  Future<ApiResult<AuthResponse>> signup(String email, String password,UserData userData);
 }

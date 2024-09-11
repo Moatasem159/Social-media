@@ -10,8 +10,6 @@ import 'package:social_media/core/extensions/context_extensions.dart';
     final TextInputAction? textInputAction;
     final TextInputType? textInputType;
     final bool isObscure;
-    final bool isReadOnly;
-    final VoidCallback? onTap;
     final FormFieldValidator<String>? validator;
     final List<TextInputFormatter> ?inputFormatters;
     final AutovalidateMode ?autoValidateMode;
@@ -24,8 +22,6 @@ import 'package:social_media/core/extensions/context_extensions.dart';
       this.textInputAction,
       this.textInputType,
       this.isObscure = false,
-      this.isReadOnly = false,
-      this.onTap,
       this.validator,
       this.inputFormatters,
       this.autoValidateMode, this.prefix,
@@ -44,9 +40,7 @@ import 'package:social_media/core/extensions/context_extensions.dart';
           validator: validator,
           autovalidateMode:autoValidateMode,
           inputFormatters: inputFormatters,
-          onTap: onTap,
           obscureText: isObscure,
-          readOnly: isReadOnly,
           cursorHeight: 18,
           controller: controller,
           cursorColor: context.theme.primaryColor,

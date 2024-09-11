@@ -6,23 +6,16 @@ part of 'user_data_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UserCredintialImpl _$$UserCredintialImplFromJson(Map<String, dynamic> json) =>
-    _$UserCredintialImpl(
+_$UserDataImpl _$$UserDataImplFromJson(Map<String, dynamic> json) =>
+    _$UserDataImpl(
       uId: json['id'] as String?,
-      email: json['email'] as String,
-      password: json['password'] as String,
       username: json['user_name'] as String,
       phoneNumber: json['phone_number'] as String,
-      dateOfBirth: DateTime.parse(json['date_of_birth'] as String),
     );
 
-Map<String, dynamic> _$$UserCredintialImplToJson(
-        _$UserCredintialImpl instance) =>
+Map<String, dynamic> _$$UserDataImplToJson(_$UserDataImpl instance) =>
     <String, dynamic>{
       'id': instance.uId,
-      'email': instance.email,
-      'password': instance.password,
       'user_name': instance.username,
       'phone_number': instance.phoneNumber,
-      'date_of_birth': instance.dateOfBirth.toIso8601String(),
     };

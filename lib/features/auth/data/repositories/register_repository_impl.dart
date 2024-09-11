@@ -13,11 +13,10 @@ class RegisterRepositoryImpl implements RegisterRepository {
   const RegisterRepositoryImpl(this._registerDataSource, this._networkInfo);
 
   @override
-  Future<ApiResult<AuthResponse>> signup({required UserCredintial user}) async {
+  Future<ApiResult<AuthResponse>> signup(String email, String password,UserData userData) async {
     if (await _networkInfo.isConnected) {
       try {
-        final AuthResponse response = await _registerDataSource.createUserWithEmailAndPassword(user.email, user.password);
-        _setUserData(user.copyWith(uId: response.user!.id));
+        final AuthResponse response = await _registerDataSource.createUserWithEmailAndPassword(email,password,userData);
         return ApiSuccess(data: response);
       } catch (error) {
         return ApiFailure(errorHandler: ErrorHandler.handle(error));
@@ -25,10 +24,5 @@ class RegisterRepositoryImpl implements RegisterRepository {
     } else {
       return ApiFailure(errorHandler: ErrorHandler.handle("connection error"));
     }
-  }
-
-  Future<void> _setUserData(UserCredintial user) async {
-    final SupabaseClient client = Supabase.instance.client;
-    await client.from('users').insert(user.toJson());
   }
 }

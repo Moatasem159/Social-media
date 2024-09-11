@@ -5,6 +5,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class RegisterWithEmailAndPasswordUsecase {
   final RegisterRepository _registerRepository;
   RegisterWithEmailAndPasswordUsecase(this._registerRepository);
-  Future<ApiResult<AuthResponse>> call({required UserCredintial user}) =>
-      _registerRepository.signup(user: user);
+  Future<ApiResult<AuthResponse>> call(String email, String password,UserData userData) =>
+      _registerRepository.signup(email, password,userData);
 }

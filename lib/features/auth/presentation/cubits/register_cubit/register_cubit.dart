@@ -5,19 +5,15 @@ import 'package:social_media/core/api/error_handler.dart';
 import 'package:social_media/features/auth/data/models/user_data_model.dart';
 import 'package:social_media/features/auth/domain/usecases/register_with_email_and_password_usecase.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
 part 'register_state.dart';
-
 class RegisterCubit extends Cubit<RegisterStates> {
   final RegisterWithEmailAndPasswordUsecase _emailAndPasswordUsecase;
-
   RegisterCubit(this._emailAndPasswordUsecase)
       : super(const RegisterInitialState());
-
-  emitRegisterStates({required UserCredintial user}) async {
+  emitRegisterStates(String email, String password,UserData userData) async {
     emit(const RegisterLoadingState());
     ApiResult<AuthResponse> response =
-        await _emailAndPasswordUsecase(user: user);
+        await _emailAndPasswordUsecase(email,password,userData);
     switch (response) {
       case ApiSuccess<AuthResponse>():
         emit(RegisterSuccessState(response.data));
@@ -27,7 +23,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
   }
 
   listener(context, state) {
-    if(state is RegisterSuccessState){
+    if (state is RegisterSuccessState) {
       //TODO: action after register done.
     }
     if (state is RegisterErrorState) {
