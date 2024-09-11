@@ -1,8 +1,8 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class GoogleSignInResponseModel{
+class SignWithProviderResponseModel{
 
   final bool firstLogin;
   final AuthResponse authResponse;
-  const GoogleSignInResponseModel({required this.firstLogin, required this.authResponse});
+  const SignWithProviderResponseModel({required this.firstLogin, required this.authResponse});
 }

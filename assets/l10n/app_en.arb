@@ -3,7 +3,7 @@
   "letsStart": "Let's Start",
   "welcomeToSocialfy": "Welcome to Socialfy",
   "welcomeTo": "Welcome to ",
-  "welcomeDialog": " – The social hub where every connection sparks creativity, every moment becomes a story, and every voice is heard",
+  "welcomeDialog": " – The social hub where every connection sparks creativity, every moment becomes a story, and every voice is heard.",
   "enterYourEmail": "Enter your email",
   "enterYourPassword": "Enter your password",
   "enterYourName": "Enter your name",
@@ -11,6 +11,8 @@
   "rememberMe": "Remember me",
   "forgotPassword": "Forgot Password?",
   "signOut": "Sign out",
+  "submit": "Submit",
+  "completeYourData": "Almost Done! Complete Your Info",
   "orContinueWith": "Or Continue with email",
   "loginWithProvider": "{provider, select, login {Login} other {Login with {provider}}}",
   "@loginWithProvider": {

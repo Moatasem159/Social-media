@@ -5,7 +5,7 @@ import 'package:social_media/core/extensions/spacing.dart';
 import 'package:social_media/features/auth/presentation/cubits/register_cubit/register_cubit.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_screen/continue_with_email.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_screen/sign_up_view/sign_up_with_email_form.dart';
-import 'package:social_media/features/auth/presentation/widgets/auth_screen/sign_up_view/sign_up_with_providers.dart';
+import 'package:social_media/features/auth/presentation/widgets/auth_screen/sign_with_providers.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
@@ -21,7 +21,7 @@ class SignUpView extends StatelessWidget {
           slivers: [
             SliverOverlapInjector(handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context)),
             verticalSliverSpace(28),
-            const SignUpWithProviders(),
+            const SignWithProviders(),
             const ContinueWithEmail(),
             const SignUpWithEmail(),
           ],

@@ -45,6 +45,9 @@ class AppTheme {
         labelPadding: const EdgeInsets.symmetric(vertical: 6),
         overlayColor: const WidgetStatePropertyAll(Colors.black12),
         unselectedLabelColor: Colors.grey),
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: AppColor.lightPrimaryColor,
+    ),
   );
 
   ///Dark theme data.
@@ -87,6 +90,9 @@ class AppTheme {
       labelPadding: const EdgeInsets.symmetric(vertical: 6),
       unselectedLabelColor: Colors.grey,
       overlayColor: const WidgetStatePropertyAll(Colors.white12),
+    ),
+    progressIndicatorTheme: ProgressIndicatorThemeData(
+      color: AppColor.darkPrimaryColor,
     ),
   );
   static const TextStyle _labelMedium = TextStyle(

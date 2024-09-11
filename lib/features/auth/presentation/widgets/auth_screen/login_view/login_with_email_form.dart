@@ -59,57 +59,60 @@ class _LoginWithEmailFormState extends State<LoginWithEmailForm> {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Form(
-        key: _formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            verticalSpace(16),
-            AuthTextFormField(
-              prefix: Icons.email_outlined,
-              controller: _emailController,
-              autoValidateMode: _autoValidateMode,
-              validator: (String? email) =>
-                  InputValidator.validateEmail(email!, context),
-              hintText: context.locale.enterYourEmail,
-              textInputAction: TextInputAction.next,
-              textInputType: TextInputType.emailAddress,
-            ),
-            AuthTextFormField(
-              prefix: Icons.lock_outline_rounded,
-              controller: _passwordController,
-              isObscure: _isPasswordObscure,
-              autoValidateMode: _autoValidateMode,
-              validator: (String? password) =>
-                  InputValidator.validatePassword(password!, context, true),
-              textInputAction: TextInputAction.done,
-              textInputType: TextInputType.visiblePassword,
-              hintText: context.locale.enterYourPassword,
-              suffix: PasswordSuffix(
-                  onTap: _changePasswordVisibility,
-                  isObscure: _isPasswordObscure),
-            ),
-            verticalSpace(10),
-            const RememberMeAndForgotPassword(),
-            verticalSpace(14),
-            Center(
-              child: BlocBuilder<LoginCubit, LoginStates>(
-                builder: (context, state) {
-                  if (state is LoginLoadingState) {
-                    return const CircularProgressIndicator(
-                      strokeWidth: 1,
-                    );
-                  }
-                  return MainButton(
-                    title: context.locale.loginWithProvider("login"),
-                    onTap: _login,
-                  );
-                },
+    return BlocListener<LoginCubit, LoginStates>(
+      listener:context.read<LoginCubit>().listener,
+      child: SliverToBoxAdapter(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              verticalSpace(16),
+              AuthTextFormField(
+                prefix: Icons.email_outlined,
+                controller: _emailController,
+                autoValidateMode: _autoValidateMode,
+                validator: (String? email) =>
+                    InputValidator.validateEmail(email!, context),
+                hintText: context.locale.enterYourEmail,
+                textInputAction: TextInputAction.next,
+                textInputType: TextInputType.emailAddress,
               ),
-            ),
-            verticalSpace(10),
-          ],
+              AuthTextFormField(
+                prefix: Icons.lock_outline_rounded,
+                controller: _passwordController,
+                isObscure: _isPasswordObscure,
+                autoValidateMode: _autoValidateMode,
+                validator: (String? password) =>
+                    InputValidator.validatePassword(password!, context, true),
+                textInputAction: TextInputAction.done,
+                textInputType: TextInputType.visiblePassword,
+                hintText: context.locale.enterYourPassword,
+                suffix: PasswordSuffix(
+                    onTap: _changePasswordVisibility,
+                    isObscure: _isPasswordObscure),
+              ),
+              verticalSpace(10),
+              const RememberMeAndForgotPassword(),
+              verticalSpace(14),
+              Center(
+                child: BlocBuilder<LoginCubit, LoginStates>(
+                  builder: (context, state) {
+                    if (state is LoginLoadingState) {
+                      return const CircularProgressIndicator(
+                        strokeWidth: 1,
+                      );
+                    }
+                    return MainButton(
+                      title: context.locale.loginWithProvider("login"),
+                      onTap: _login,
+                    );
+                  },
+                ),
+              ),
+              verticalSpace(10),
+            ],
+          ),
         ),
       ),
     );

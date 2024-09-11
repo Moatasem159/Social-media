@@ -6,12 +6,16 @@ import 'package:social_media/core/api/env.dart';
 import 'package:social_media/core/api/network_info.dart';
 import 'package:social_media/features/auth/data/repositories/login_repository_impl.dart';
 import 'package:social_media/features/auth/data/repositories/register_repository_impl.dart';
+import 'package:social_media/features/auth/data/repositories/sign_with_provider_repository_impl.dart';
 import 'package:social_media/features/auth/data/sources/login_data_source.dart';
 import 'package:social_media/features/auth/data/sources/register_data_source.dart';
+import 'package:social_media/features/auth/data/sources/sign_with_providers_data_source.dart';
 import 'package:social_media/features/auth/domain/repositories/login_repository.dart';
 import 'package:social_media/features/auth/domain/repositories/register_repository.dart';
+import 'package:social_media/features/auth/domain/repositories/sign_with_provider_repository.dart';
 import 'package:social_media/features/auth/domain/usecases/login_with_email_and_password_usecase.dart';
-import 'package:social_media/features/auth/domain/usecases/login_with_google_usecase.dart';
+import 'package:social_media/features/auth/domain/usecases/set_user_data_usecase.dart';
+import 'package:social_media/features/auth/domain/usecases/sign_with_google_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/register_with_email_and_password_usecase.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -23,6 +27,7 @@ Future<void> setUpGetIt() async {
   await _setupNetworkChecker();
   await _setupRegisterDependencies();
   await _setupLoginDependencies();
+  await _setupSignWithProviderDependencies();
 }
 
 _setupNetworkChecker() async {
@@ -63,7 +68,12 @@ _setupLoginDependencies() async {
   getIt.registerLazySingleton<LoginWithEmailAndPasswordUsecase>(
     () => LoginWithEmailAndPasswordUsecase(getIt()),
   );
-  getIt.registerLazySingleton<LoginWithGoogleUsecaseUsecase>(
-    () => LoginWithGoogleUsecaseUsecase(getIt()),
-  );
+
+}
+
+_setupSignWithProviderDependencies(){
+  getIt.registerLazySingleton<SignWithProviderDataSource>(() => SignWithProviderDataSourceImpl());
+  getIt.registerLazySingleton<SignWithProviderRepository>(() => SignWithProviderRepositoryImpl(getIt(), getIt()));
+  getIt.registerLazySingleton<SignWithGoogleUsecase>(() => SignWithGoogleUsecase(getIt()));
+  getIt.registerLazySingleton<SetUserDataUsecase>(() => SetUserDataUsecase(getIt()));
 }
