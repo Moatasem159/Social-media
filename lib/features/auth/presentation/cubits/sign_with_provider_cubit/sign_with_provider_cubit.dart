@@ -9,6 +9,7 @@ import 'package:social_media/features/auth/data/models/user_data_model.dart';
 import 'package:social_media/features/auth/domain/usecases/set_user_data_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/sign_with_facebook_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/sign_with_google_usecase.dart';
+import 'package:social_media/features/auth/domain/usecases/sign_with_twitter_usecase.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_screen/complete_data_bottom_sheet.dart';
 
 part 'sign_with_provider_state.dart';
@@ -16,36 +17,52 @@ part 'sign_with_provider_state.dart';
 class SignWithProviderCubit extends Cubit<SignWithProviderStates> {
   final SignWithGoogleUsecase _loginWithGoogleUsecaseUsecase;
   final SignWithFacebookUsecase _signWithFacebookUsecase;
+  final SignWithTwitterUsecase _signWithTwitterUsecase;
   final SetUserDataUsecase _setUserDataUsecase;
 
   SignWithProviderCubit(
     this._loginWithGoogleUsecaseUsecase,
     this._setUserDataUsecase,
     this._signWithFacebookUsecase,
+    this._signWithTwitterUsecase,
   ) : super(const SignWithProviderInitialState());
 
   signWithGoogle() async {
     emit(const SignWithProviderLoadingState());
-    ApiResult<SignWithGoogleResponseModel> response =
+    ApiResult<SignWithProviderResponseModel> response =
         await _loginWithGoogleUsecaseUsecase();
     switch (response) {
-      case ApiSuccess<SignWithGoogleResponseModel>():
+      case ApiSuccess<SignWithProviderResponseModel>():
         log(response.data.toString());
-        emit(SignWithGoogleSuccessState(response.data));
-      case ApiFailure<SignWithGoogleResponseModel>():
+        emit(SignWithProviderSuccessState(response.data));
+      case ApiFailure<SignWithProviderResponseModel>():
         log(response.errorHandler.apiError.message);
         emit(SignWithProviderErrorState(response.errorHandler.apiError));
     }
   }
+
   signWithFacebook() async {
     //TODO: add remember me feature.
     emit(const SignWithProviderLoadingState());
-    ApiResult<SignWithFacebookResponseModel> response =
-    await _signWithFacebookUsecase();
+    ApiResult<SignWithProviderResponseModel> response =
+        await _signWithFacebookUsecase();
     switch (response) {
-      case ApiSuccess<SignWithFacebookResponseModel>():
-        emit(SignWithFacebookSuccessState(response.data));
-      case ApiFailure<SignWithFacebookResponseModel>():
+      case ApiSuccess<SignWithProviderResponseModel>():
+        emit(SignWithProviderSuccessState(response.data));
+      case ApiFailure<SignWithProviderResponseModel>():
+        log(response.errorHandler.apiError.message);
+        emit(SignWithProviderErrorState(response.errorHandler.apiError));
+    }
+  }
+  signWithTwitter() async {
+    //TODO: add remember me feature.
+    emit(const SignWithProviderLoadingState());
+    ApiResult<SignWithProviderResponseModel> response =
+    await _signWithTwitterUsecase();
+    switch (response) {
+      case ApiSuccess<SignWithProviderResponseModel>():
+        emit(SignWithProviderSuccessState(response.data));
+      case ApiFailure<SignWithProviderResponseModel>():
         log(response.errorHandler.apiError.message);
         emit(SignWithProviderErrorState(response.errorHandler.apiError));
     }
@@ -63,7 +80,7 @@ class SignWithProviderCubit extends Cubit<SignWithProviderStates> {
   }
 
   mainListener(BuildContext context, SignWithProviderStates state) {
-    if (state is SignWithGoogleSuccessState &&
+    if (state is SignWithProviderSuccessState &&
         state.responseModel.firstLogin!) {
       showModalBottomSheet(
         context: context,
@@ -80,24 +97,7 @@ class SignWithProviderCubit extends Cubit<SignWithProviderStates> {
         },
       );
     }
-    if (state is SignWithFacebookSuccessState &&
-        state.responseModel.firstLogin!) {
-      showModalBottomSheet(
-        context: context,
-        isDismissible: false,
-        isScrollControlled: true,
-        enableDrag: false,
-        builder: (_) {
-          return BlocProvider<SignWithProviderCubit>.value(
-            value: context.read<SignWithProviderCubit>(),
-            child: CompleteDateBottomSheet(
-              uId: state.responseModel.userCredential!.user!.uid,
-            ),
-          );
-        },
-      );
-    }
-    if (state is SignWithGoogleSuccessState &&
+    if (state is SignWithProviderSuccessState &&
         !state.responseModel.firstLogin!) {
       //TODO:navigate to home;
     }

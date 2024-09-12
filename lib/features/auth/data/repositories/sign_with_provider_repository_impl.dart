@@ -14,10 +14,10 @@ class SignWithProviderRepositoryImpl implements SignWithProviderRepository {
       this._networkInfo, this._signWithProviderDataSource);
 
   @override
-  Future<ApiResult<SignWithGoogleResponseModel>> signInWithGoogle() async {
+  Future<ApiResult<SignWithProviderResponseModel>> signInWithGoogle() async {
     if (await _networkInfo.isConnected) {
       try {
-        final SignWithGoogleResponseModel response =
+        final SignWithProviderResponseModel response =
             await _signWithProviderDataSource.googleSignIn();
         return ApiSuccess(data: response);
       } catch (error) {
@@ -28,11 +28,24 @@ class SignWithProviderRepositoryImpl implements SignWithProviderRepository {
     }
   }
   @override
-  Future<ApiResult<SignWithFacebookResponseModel>> signInWithFaceBook()async {
+  Future<ApiResult<SignWithProviderResponseModel>> signInWithFaceBook()async {
     if (await _networkInfo.isConnected) {
       try {
-        final SignWithFacebookResponseModel response =
+        final SignWithProviderResponseModel response =
         await _signWithProviderDataSource.faceBookSignIn();
+        return ApiSuccess(data: response);
+      } catch (error) {
+        return ApiFailure(errorHandler: ErrorHandler.handle(error));
+      }
+    } else {
+      return ApiFailure(errorHandler: ErrorHandler.handle("connection error"));
+    }
+  }
+  @override
+  Future<ApiResult<SignWithProviderResponseModel>> signInWithTwitter()async {
+    if (await _networkInfo.isConnected) {
+      try {
+        final SignWithProviderResponseModel response = await _signWithProviderDataSource.twitterSignIn();
         return ApiSuccess(data: response);
       } catch (error) {
         return ApiFailure(errorHandler: ErrorHandler.handle(error));
@@ -54,6 +67,4 @@ class SignWithProviderRepositoryImpl implements SignWithProviderRepository {
       return ApiFailure(errorHandler: ErrorHandler.handle("connection error"));
     }
   }
-
-
 }

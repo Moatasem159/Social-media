@@ -19,6 +19,7 @@ import 'package:social_media/features/auth/domain/usecases/set_user_data_usecase
 import 'package:social_media/features/auth/domain/usecases/sign_with_facebook_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/sign_with_google_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/register_with_email_and_password_usecase.dart';
+import 'package:social_media/features/auth/domain/usecases/sign_with_twitter_usecase.dart';
 import 'package:social_media/firebase_options.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 final GetIt getIt = GetIt.instance;
@@ -86,6 +87,8 @@ _setupSignWithProviderDependencies() {
       () => SignWithGoogleUsecase(getIt()));
   getIt.registerLazySingleton<SignWithFacebookUsecase>(
       () => SignWithFacebookUsecase(getIt()));
+  getIt.registerLazySingleton<SignWithTwitterUsecase>(
+          () => SignWithTwitterUsecase(getIt()));
   getIt.registerLazySingleton<SetUserDataUsecase>(
       () => SetUserDataUsecase(getIt()));
 }

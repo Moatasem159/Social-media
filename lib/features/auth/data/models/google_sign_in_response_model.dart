@@ -1,18 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-abstract class SignWithProviderResponseModel {
+class SignWithProviderResponseModel {
   final bool? firstLogin;
-  const SignWithProviderResponseModel({this.firstLogin});
-}
-
-class SignWithGoogleResponseModel extends SignWithProviderResponseModel {
   final UserCredential? userCredential;
 
-  const SignWithGoogleResponseModel({super.firstLogin, this.userCredential});
-}
-
-class SignWithFacebookResponseModel extends SignWithProviderResponseModel {
-  final UserCredential? userCredential;
-
-  const SignWithFacebookResponseModel({super.firstLogin, this.userCredential});
+  const SignWithProviderResponseModel({this.userCredential, this.firstLogin});
 }

@@ -4,5 +4,5 @@ import 'package:social_media/features/auth/domain/repositories/sign_with_provide
 class SignWithFacebookUsecase {
   final SignWithProviderRepository _signWithProviderRepository;
   const SignWithFacebookUsecase(this._signWithProviderRepository);
-  Future<ApiResult<SignWithFacebookResponseModel>> call() => _signWithProviderRepository.signInWithFaceBook();
+  Future<ApiResult<SignWithProviderResponseModel>> call() => _signWithProviderRepository.signInWithFaceBook();
 }

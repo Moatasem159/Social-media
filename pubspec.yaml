@@ -43,6 +43,8 @@ dependencies:
   internet_connection_checker: ^2.0.0
   # Flutter plugin for Google Sign-In.
   google_sign_in: ^6.2.1
+  # Flutter plugin for Facebook Sign-In.
+  flutter_facebook_auth: ^7.1.1
 dev_dependencies:
   # A build system for Dart code generation and modular compilation.
   build_runner: ^2.4.12

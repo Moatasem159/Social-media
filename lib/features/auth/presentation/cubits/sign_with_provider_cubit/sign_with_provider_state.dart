@@ -21,15 +21,11 @@ final class SetUserDataErrorState extends SignWithProviderStates {
 final class SignWithProviderLoadingState extends SignWithProviderStates {
   const SignWithProviderLoadingState();
 }
+final class SignWithProviderSuccessState extends SignWithProviderStates {
+  final SignWithProviderResponseModel responseModel;
+  const SignWithProviderSuccessState(this.responseModel);
+}
 final class SignWithProviderErrorState extends SignWithProviderStates {
   final ApiError error;
   const SignWithProviderErrorState(this.error);
-}
-final class SignWithGoogleSuccessState extends SignWithProviderStates {
-  final SignWithGoogleResponseModel responseModel;
-  const SignWithGoogleSuccessState(this.responseModel);
-}
-final class SignWithFacebookSuccessState extends SignWithProviderStates {
-  final SignWithFacebookResponseModel responseModel;
-  const SignWithFacebookSuccessState(this.responseModel);
 }
