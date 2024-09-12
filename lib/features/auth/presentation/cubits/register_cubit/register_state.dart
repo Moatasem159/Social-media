@@ -11,8 +11,7 @@ final class RegisterLoadingState extends RegisterStates {
   const RegisterLoadingState();
 }
 final class RegisterSuccessState extends RegisterStates {
-  final AuthResponse authResponse;
-  const RegisterSuccessState(this.authResponse);
+  const RegisterSuccessState();
 }
 final class RegisterErrorState extends RegisterStates {
   final ApiError error;

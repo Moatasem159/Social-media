@@ -1,17 +1,16 @@
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 abstract class LoginDataSource {
-  Future<AuthResponse> signIn(String email, String password);
+  Future<UserCredential> signIn(String email, String password);
 }
 
 class LoginDataSourceImpl implements LoginDataSource {
   @override
-  Future<AuthResponse> signIn(String email, String password) async {
-    final SupabaseClient client = Supabase.instance.client;
-    return await client.auth.signInWithPassword(
+  Future<UserCredential> signIn(String email, String password) async {
+    final FirebaseAuth authClient = FirebaseAuth.instance;
+    return await authClient.signInWithEmailAndPassword(
       password: password,
       email: email,
     );
   }
-
-
 }
