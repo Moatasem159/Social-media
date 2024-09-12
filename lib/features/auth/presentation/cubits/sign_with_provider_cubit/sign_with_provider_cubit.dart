@@ -33,6 +33,7 @@ class SignWithProviderCubit extends Cubit<SignWithProviderStates> {
         log(response.data.toString());
         emit(SignWithGoogleSuccessState(response.data));
       case ApiFailure<SignWithGoogleResponseModel>():
+        log(response.errorHandler.apiError.message);
         emit(SignWithProviderErrorState(response.errorHandler.apiError));
     }
   }
@@ -73,7 +74,7 @@ class SignWithProviderCubit extends Cubit<SignWithProviderStates> {
           return BlocProvider<SignWithProviderCubit>.value(
             value: context.read<SignWithProviderCubit>(),
             child: CompleteDateBottomSheet(
-              uId: state.responseModel.authResponse!.user!.id,
+              uId: state.responseModel.userCredential!.user!.uid,
             ),
           );
         },
@@ -90,7 +91,7 @@ class SignWithProviderCubit extends Cubit<SignWithProviderStates> {
           return BlocProvider<SignWithProviderCubit>.value(
             value: context.read<SignWithProviderCubit>(),
             child: CompleteDateBottomSheet(
-              uId: state.responseModel.user!.id,
+              uId: state.responseModel.userCredential!.user!.uid,
             ),
           );
         },
