@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -18,19 +19,24 @@ import 'package:social_media/features/auth/domain/usecases/set_user_data_usecase
 import 'package:social_media/features/auth/domain/usecases/sign_with_facebook_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/sign_with_google_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/register_with_email_and_password_usecase.dart';
+import 'package:social_media/firebase_options.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
 final GetIt getIt = GetIt.instance;
-
 Future<void> setUpGetIt() async {
   Bloc.observer = AppBlocObserver();
   await _initializeSupabase();
+  await _setupFirebase();
   await _setupNetworkChecker();
   await _setupRegisterDependencies();
   await _setupLoginDependencies();
   await _setupSignWithProviderDependencies();
 }
 
+_setupFirebase()async{
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+}
 _setupNetworkChecker() async {
   getIt.registerLazySingleton<InternetConnectionChecker>(
       () => InternetConnectionChecker.createInstance());
