@@ -13,7 +13,7 @@ class InitialRoute extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) =>
       const WelcomeScreen();
 }
-@TypedGoRoute<AuthRoute>(path: '/AuthRoute')
+@TypedGoRoute<AuthRoute>(path: '/authRoute')
 class AuthRoute extends GoRouteData {
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {

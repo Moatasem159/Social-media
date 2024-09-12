@@ -15,6 +15,7 @@ import 'package:social_media/features/auth/domain/repositories/register_reposito
 import 'package:social_media/features/auth/domain/repositories/sign_with_provider_repository.dart';
 import 'package:social_media/features/auth/domain/usecases/login_with_email_and_password_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/set_user_data_usecase.dart';
+import 'package:social_media/features/auth/domain/usecases/sign_with_facebook_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/sign_with_google_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/register_with_email_and_password_usecase.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -68,12 +69,17 @@ _setupLoginDependencies() async {
   getIt.registerLazySingleton<LoginWithEmailAndPasswordUsecase>(
     () => LoginWithEmailAndPasswordUsecase(getIt()),
   );
-
 }
 
-_setupSignWithProviderDependencies(){
-  getIt.registerLazySingleton<SignWithProviderDataSource>(() => SignWithProviderDataSourceImpl());
-  getIt.registerLazySingleton<SignWithProviderRepository>(() => SignWithProviderRepositoryImpl(getIt(), getIt()));
-  getIt.registerLazySingleton<SignWithGoogleUsecase>(() => SignWithGoogleUsecase(getIt()));
-  getIt.registerLazySingleton<SetUserDataUsecase>(() => SetUserDataUsecase(getIt()));
+_setupSignWithProviderDependencies() {
+  getIt.registerLazySingleton<SignWithProviderDataSource>(
+      () => SignWithProviderDataSourceImpl());
+  getIt.registerLazySingleton<SignWithProviderRepository>(
+      () => SignWithProviderRepositoryImpl(getIt(), getIt()));
+  getIt.registerLazySingleton<SignWithGoogleUsecase>(
+      () => SignWithGoogleUsecase(getIt()));
+  getIt.registerLazySingleton<SignWithFacebookUsecase>(
+      () => SignWithFacebookUsecase(getIt()));
+  getIt.registerLazySingleton<SetUserDataUsecase>(
+      () => SetUserDataUsecase(getIt()));
 }

@@ -16,6 +16,7 @@ class SignWithProviders extends StatelessWidget {
       create: (context) => SignWithProviderCubit(
         getIt(),
         getIt(),
+        getIt(),
       ),
       child: Builder(
         builder: (context) {
@@ -29,7 +30,6 @@ class SignWithProviders extends StatelessWidget {
                       if (state is SignWithProviderLoadingState) {
                         return LinearProgressIndicator(
                           borderRadius: BorderRadius.circular(10),
-
                         );
                       }
                       return const SizedBox();
@@ -53,7 +53,7 @@ class SignWithProviders extends StatelessWidget {
                     backgroundColor: const Color(0xff0866ff),
                     foregroundColor: Colors.white,
                     title: context.locale.loginWithProvider("Facebook"),
-                    onTap: () {},
+                    onTap: context.read<SignWithProviderCubit>().signWithFacebook,
                   ),
                   verticalSpace(8),
                   SignWithProviderButton(

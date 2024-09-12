@@ -114,7 +114,7 @@ class _CompleteDateBottomSheetState extends State<CompleteDateBottomSheet> {
                   prefix: Icons.phone,
                   autoValidateMode: _autoValidateMode,
                   inputFormatters: [
-                    LengthLimitingTextInputFormatter(12)
+                    LengthLimitingTextInputFormatter(11)
                   ],
                   controller: _phoneController,
                   validator: (String? phone) =>

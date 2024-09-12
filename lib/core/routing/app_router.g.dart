@@ -34,7 +34,7 @@ extension $InitialRouteExtension on InitialRoute {
 }
 
 RouteBase get $authRoute => GoRouteData.$route(
-      path: '/AuthRoute',
+      path: '/authRoute',
       factory: $AuthRouteExtension._fromState,
     );
 
@@ -42,7 +42,7 @@ extension $AuthRouteExtension on AuthRoute {
   static AuthRoute _fromState(GoRouterState state) => AuthRoute();
 
   String get location => GoRouteData.$location(
-        '/AuthRoute',
+        '/authRoute',
       );
 
   void go(BuildContext context) => context.go(location);
