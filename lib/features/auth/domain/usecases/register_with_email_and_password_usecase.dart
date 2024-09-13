@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:social_media/core/api/api_result.dart';
 import 'package:social_media/features/auth/data/models/user_data_model.dart';
-import 'package:social_media/features/auth/domain/repositories/register_repository.dart';
+import 'package:social_media/features/auth/domain/repositories/auth_repository.dart';
 
 /// Use case for registering a user with email and password.
 ///
@@ -14,7 +14,7 @@ import 'package:social_media/features/auth/domain/repositories/register_reposito
 /// - [call]: Registers a user with the given email, password, and user data, and
 ///   returns an [ApiResult] containing either the [UserCredential] or an error.
 class RegisterWithEmailAndPasswordUsecase {
-  final RegisterRepository _registerRepository;
+  final AuthRepository _authRepository;
 
   /// Creates an instance of [RegisterWithEmailAndPasswordUsecase] with the specified
   /// [RegisterRepository].
@@ -22,7 +22,7 @@ class RegisterWithEmailAndPasswordUsecase {
   /// Parameters:
   /// - [_registerRepository]: An instance of [RegisterRepository] used for performing
   ///   the registration operation.
-  RegisterWithEmailAndPasswordUsecase(this._registerRepository);
+  RegisterWithEmailAndPasswordUsecase(this._authRepository);
 
   /// Registers a user with the given email and password, and sets user data.
   ///
@@ -39,5 +39,5 @@ class RegisterWithEmailAndPasswordUsecase {
   /// - [Future<ApiResult<UserCredential>>]: A future that completes with an [ApiResult]
   ///   containing either the [UserCredential] or an error.
   Future<ApiResult<UserCredential>> call(String email, String password, UserData userData) =>
-      _registerRepository.signup(email, password, userData);
+      _authRepository.signup(email, password, userData);
 }
