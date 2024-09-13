@@ -12,6 +12,7 @@ extension ThemesExtension on BuildContext {
   TextStyle get labelLarge=>theme.textTheme.labelLarge!;
   TextStyle get labelMedium=>theme.textTheme.labelMedium!;
   TextStyle get labelSmall=>theme.textTheme.labelSmall!;
+  TextStyle get titleLarge=>theme.textTheme.titleLarge!;
   TextStyle get titleMedium=>theme.textTheme.titleMedium!;
   TextStyle get titleSmall=>theme.textTheme.titleSmall!;
   TextStyle get headLineSmall=>theme.textTheme.headlineSmall!;

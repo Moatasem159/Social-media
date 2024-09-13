@@ -16,7 +16,7 @@ class RememberMeAndForgotPassword extends StatelessWidget {
         GestureDetector(
           onTap: ()=> ForgotPasswordRoute().push(context),
           child: Text(
-            context.locale.forgotPassword,
+            context.locale.forgotPassword("withMark"),
             style: context.labelLarge.copyWith(
               decoration: TextDecoration.underline,
             ),

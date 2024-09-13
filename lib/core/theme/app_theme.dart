@@ -39,14 +39,18 @@ class AppTheme {
       elevation: 10,
     ),
     tabBarTheme: TabBarTheme(
-        indicatorColor: AppColor.lightPrimaryColor,
-        indicatorSize: TabBarIndicatorSize.tab,
-        labelColor: AppColor.lightPrimaryColor,
-        labelPadding: const EdgeInsets.symmetric(vertical: 6),
-        overlayColor: const WidgetStatePropertyAll(Colors.black12),
-        unselectedLabelColor: Colors.grey),
+      indicatorColor: AppColor.lightPrimaryColor,
+      indicatorSize: TabBarIndicatorSize.tab,
+      labelColor: AppColor.lightPrimaryColor,
+      labelPadding: const EdgeInsets.symmetric(vertical: 6),
+      overlayColor: const WidgetStatePropertyAll(Colors.black12),
+      unselectedLabelColor: Colors.grey,
+    ),
     progressIndicatorTheme: ProgressIndicatorThemeData(
       color: AppColor.lightPrimaryColor,
+    ),
+    appBarTheme: const AppBarTheme(
+      titleSpacing: 0,
     ),
   );
 
@@ -93,6 +97,9 @@ class AppTheme {
     ),
     progressIndicatorTheme: ProgressIndicatorThemeData(
       color: AppColor.darkPrimaryColor,
+    ),
+    appBarTheme: const AppBarTheme(
+      titleSpacing: 0,
     ),
   );
   static const TextStyle _labelMedium = TextStyle(

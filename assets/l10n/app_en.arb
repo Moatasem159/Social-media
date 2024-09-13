@@ -10,14 +10,23 @@
   "enterYourName": "Enter your name",
   "enterYourPhoneNumber": "Enter your phone number",
   "rememberMe": "Remember me",
-  "forgotPassword": "Forgot Password?",
+  "forgotPassword": "{questionMark, select, withMark {Forgot password?} other {Forgot password}}",
+  "@forgotPassword": {
+    "placeholders": {
+      "questionMark": {
+        "type": "String",
+        "example": "withMark"
+      }
+    }
+  },
+  "resetPassword": "Reset password",
+  "forgotPasswordDialog": "Enter your email address and we will send you a reset instructions.",
   "signOut": "Sign out",
   "submit": "Submit",
   "completeYourData": "Almost Done! Complete Your Info",
   "orContinueWith": "Or Continue with email",
   "loginWithProvider": "{provider, select, login {Login} other {Login with {provider}}}",
   "@loginWithProvider": {
-    "description": "Login text that includes provider name if provided, otherwise 'Login'",
     "placeholders": {
       "provider": {
         "type": "String",
@@ -27,7 +36,6 @@
   },
   "signUpWithProvider": "{provider, select, signUp {Sign Up} other {Sign Up with {provider}}}",
   "@signUpWithProvider": {
-    "description": "Sign up text that includes provider name if provided, otherwise 'sign up'",
     "placeholders": {
       "provider": {
         "type": "String",
