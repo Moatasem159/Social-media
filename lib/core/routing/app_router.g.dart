@@ -10,6 +10,7 @@ List<RouteBase> get $appRoutes => [
       $initialRoute,
       $authRoute,
       $forgotPasswordRoute,
+      $resetPasswordRoute,
     ];
 
 RouteBase get $initialRoute => GoRouteData.$route(
@@ -67,6 +68,34 @@ extension $ForgotPasswordRouteExtension on ForgotPasswordRoute {
 
   String get location => GoRouteData.$location(
         '/forgotPasswordRoute',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $resetPasswordRoute => GoRouteData.$route(
+      path: '/resetPasswordRoute',
+      factory: $ResetPasswordRouteExtension._fromState,
+    );
+
+extension $ResetPasswordRouteExtension on ResetPasswordRoute {
+  static ResetPasswordRoute _fromState(GoRouterState state) =>
+      ResetPasswordRoute(
+        email: state.uri.queryParameters['email']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/resetPasswordRoute',
+        queryParams: {
+          'email': email,
+        },
       );
 
   void go(BuildContext context) => context.go(location);

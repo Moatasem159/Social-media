@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/core/extensions/context_extensions.dart';
+import 'package:social_media/core/routing/app_router.dart';
 import 'package:social_media/core/widgets/main_button.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_text_form_field.dart';
 
@@ -11,8 +12,15 @@ class ForgotPassForm extends StatefulWidget {
 }
 
 class _ForgotPassFormState extends State<ForgotPassForm> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  late final GlobalKey<FormState> _formKey;
+  late final TextEditingController _emailController;
 
+  @override
+  void initState() {
+    super.initState();
+    _formKey=GlobalKey<FormState>();
+    _emailController=TextEditingController();
+  }
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -22,10 +30,13 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
           // Email Field
           AuthTextFormField(
             hintText: context.locale.enterYourEmail,
+            controller: _emailController,
           ),
           MainButton(
             title: context.locale.resetPassword,
-            onTap: () {},
+            onTap: () {
+              ResetPasswordRoute(email:_emailController.text).push(context);
+            },
           )
         ],
       ),

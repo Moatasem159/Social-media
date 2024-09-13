@@ -10,6 +10,9 @@
   "enterYourName": "Enter your name",
   "enterYourPhoneNumber": "Enter your phone number",
   "rememberMe": "Remember me",
+  "done": "Done",
+  "resendEmail": "Resend email",
+  "resetEmailSent": "Reset email sent",
   "forgotPassword": "{questionMark, select, withMark {Forgot password?} other {Forgot password}}",
   "@forgotPassword": {
     "placeholders": {

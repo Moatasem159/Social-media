@@ -5,16 +5,32 @@ class MainButton extends StatelessWidget {
   final IconData? icon;
   final VoidCallback? onTap;
   final Size? size;
-
-  const MainButton(
-      {super.key, required this.title, this.icon, this.onTap, this.size});
+  final Color? foregroundColor;
+  final Color? backgroundColor;
+  final OutlinedBorder? border;
+  final double ?elevation;
+  const MainButton({
+    super.key,
+    required this.title,
+    this.icon,
+    this.onTap,
+    this.size,
+    this.foregroundColor,
+    this.backgroundColor,
+    this.border, this.elevation,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        padding: icon == null ? null : const EdgeInsets.symmetric(horizontal: 10),
+        foregroundColor: foregroundColor,
+        backgroundColor: backgroundColor,
+        shape: border,
+        padding:
+            icon == null ? null : const EdgeInsets.symmetric(horizontal: 10),
         fixedSize: size,
+        elevation: elevation
       ),
       onPressed: onTap,
       child: icon == null
