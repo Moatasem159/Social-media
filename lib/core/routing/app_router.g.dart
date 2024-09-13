@@ -9,6 +9,7 @@ part of 'app_router.dart';
 List<RouteBase> get $appRoutes => [
       $initialRoute,
       $authRoute,
+      $forgotPasswordRoute,
     ];
 
 RouteBase get $initialRoute => GoRouteData.$route(
@@ -43,6 +44,29 @@ extension $AuthRouteExtension on AuthRoute {
 
   String get location => GoRouteData.$location(
         '/authRoute',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $forgotPasswordRoute => GoRouteData.$route(
+      path: '/forgotPasswordRoute',
+      factory: $ForgotPasswordRouteExtension._fromState,
+    );
+
+extension $ForgotPasswordRouteExtension on ForgotPasswordRoute {
+  static ForgotPasswordRoute _fromState(GoRouterState state) =>
+      ForgotPasswordRoute();
+
+  String get location => GoRouteData.$location(
+        '/forgotPasswordRoute',
       );
 
   void go(BuildContext context) => context.go(location);
