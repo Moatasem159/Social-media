@@ -3,10 +3,10 @@ import 'package:social_media/features/auth/data/models/sign_in_method.dart';
 import 'package:social_media/features/auth/data/models/user_data_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-/// Abstract class defining the contract for sign-in data sources.
+/// Abstract class defining the contract for authentication data sources.
 ///
-/// This class outlines the methods required for interacting with data sources related to user sign-in
-/// and user data management.
+/// This class outlines the methods required for interacting with data sources related to user
+/// authentication and user data management.
 abstract class AuthDataSource {
   /// Signs in a user using a specified sign-in method.
   ///
@@ -36,12 +36,22 @@ abstract class AuthDataSource {
   /// Returns:
   /// - [Future<void>]: A future that completes when the user data has been successfully set.
   Future<void> setUserData(UserData user);
+
+  /// Sends a password reset email to the specified email address.
+  ///
+  /// Parameters:
+  /// - [email]: The email address to which the password reset email should be sent.
+  ///
+  /// Returns:
+  /// - [Future<void>]: A future that completes when the password reset email has been successfully sent.
+  Future<void> resetPassword(String email);
 }
 
 /// Implementation of [AuthDataSource] using Supabase for user data storage.
 ///
-/// This class provides concrete implementations of the methods for signing in users and setting user data.
-/// It uses Supabase as the backend service for user data storage.
+/// This class provides concrete implementations of the methods for signing in users, creating new users,
+/// setting user data, and resetting passwords. It uses Supabase as the backend service for user data storage
+/// and Firebase for authentication.
 class AuthDataSourceImpl extends AuthDataSource {
   @override
   Future<UserCredential> signIn(SignInMethod signInMethod) {
@@ -58,6 +68,12 @@ class AuthDataSourceImpl extends AuthDataSource {
       email: email,
       password: password,
     );
+  }
+
+  @override
+  Future<void> resetPassword(String email) async {
+    // Send a password reset email to the specified email address using FirebaseAuth.
+    await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
   }
 
   @override

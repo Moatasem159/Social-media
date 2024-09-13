@@ -8,6 +8,7 @@ import 'package:social_media/core/api/network_info.dart';
 import 'package:social_media/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:social_media/features/auth/data/sources/auth_data_source.dart';
 import 'package:social_media/features/auth/domain/repositories/auth_repository.dart';
+import 'package:social_media/features/auth/domain/usecases/reset_password_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/set_user_data_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/sign_in_usecase.dart';
 import 'package:social_media/features/auth/domain/usecases/register_with_email_and_password_usecase.dart';
@@ -57,4 +58,6 @@ _setupSignInDependencies() {
   getIt.registerLazySingleton<SignInUsecase>(() => SignInUsecase(getIt()));
   getIt.registerLazySingleton<SetUserDataUsecase>(
       () => SetUserDataUsecase(getIt()));
+  getIt.registerLazySingleton<ResetPasswordUsecase>(
+          () => ResetPasswordUsecase(getIt()));
 }

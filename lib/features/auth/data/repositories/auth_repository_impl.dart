@@ -6,7 +6,6 @@ import 'package:social_media/features/auth/data/models/sign_in_method.dart';
 import 'package:social_media/features/auth/data/models/user_data_model.dart';
 import 'package:social_media/features/auth/data/sources/auth_data_source.dart';
 import 'package:social_media/features/auth/domain/repositories/auth_repository.dart';
-
 /// Implementation of the [AuthRepository] interface.
 ///
 /// This class provides concrete methods for signing in users, registering new users,
@@ -21,14 +20,14 @@ import 'package:social_media/features/auth/domain/repositories/auth_repository.d
 /// - [signup]: Registers a new user with email and password, then sets user data.
 /// - [setUserData]: Sets user data using the provided [UserData] and returns an [ApiResult]
 ///   indicating success or failure.
+/// - [resetPassword]: Sends a password reset email to the specified email address.
 ///
 /// Exceptions:
 /// - Handles network-related exceptions if there is no internet connection.
-/// - Handles errors that occur during the sign-in, registration, or user data setting processes.
+/// - Handles errors that occur during the sign-in, registration, password reset, or user data setting processes.
 class AuthRepositoryImpl implements AuthRepository {
   final NetworkInfo _networkInfo;
   final AuthDataSource _authDataSource;
-
   /// Creates an instance of [AuthRepositoryImpl] with the specified dependencies.
   ///
   /// Parameters:
@@ -36,7 +35,6 @@ class AuthRepositoryImpl implements AuthRepository {
   /// - [_authDataSource]: An instance of [AuthDataSource] for interacting with authentication
   ///   and user data sources.
   const AuthRepositoryImpl(this._networkInfo, this._authDataSource);
-
   /// Signs in a user using the specified [SignInMethod].
   ///
   /// Checks network connectivity before attempting to sign in. If the network is available,
@@ -64,7 +62,6 @@ class AuthRepositoryImpl implements AuthRepository {
       return ApiFailure(errorHandler: ErrorHandler.handle(const NetworkException()));
     }
   }
-
   /// Registers a user using email and password, then sets user data.
   ///
   /// Checks network connectivity before attempting registration. If the network is available,
@@ -98,7 +95,31 @@ class AuthRepositoryImpl implements AuthRepository {
       return ApiFailure(errorHandler: ErrorHandler.handle(const NetworkException()));
     }
   }
-
+  /// Sends a password reset email to the specified email address.
+  ///
+  /// Checks network connectivity before attempting to send the password reset email. If the network is available,
+  /// it sends the password reset email using the provided email address. If successful, it returns an [ApiSuccess].
+  /// If an error occurs during the process, it returns an [ApiFailure] with the error details. If there is no network
+  /// connection, it returns an [ApiFailure] indicating a network error.
+  ///
+  /// Parameters:
+  /// - [email]: The email address to which the password reset email should be sent.
+  ///
+  /// Returns:
+  /// - [Future<ApiResult<void>>]: An [ApiResult] indicating success or failure.
+  @override
+  Future<ApiResult<void>> resetPassword(String email) async {
+    if (await _networkInfo.isConnected) {
+      try {
+        await _authDataSource.resetPassword(email);
+        return const ApiSuccess<void>(data: null);
+      } catch (error) {
+        return ApiFailure(errorHandler: ErrorHandler.handle(error));
+      }
+    } else {
+      return ApiFailure(errorHandler: ErrorHandler.handle(const NetworkException()));
+    }
+  }
   /// Sets user data using the provided [UserData].
   ///
   /// Checks network connectivity before attempting to set user data. If the network is available,
