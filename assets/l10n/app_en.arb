@@ -1,4 +1,5 @@
 {
+  "@@locale": "en",
   "socialfy": "Socialfy",
   "letsStart": "Let's Start",
   "welcomeToSocialfy": "Welcome to Socialfy",
@@ -42,5 +43,18 @@
   "required": "required",
   "invalidEmailFormat": "Invalid email format",
   "invalidPhoneFormat": "Invalid phone number",
-  "invalidName": "Name can only contain alphabetic characters and spaces"
+  "invalidName": "Name can only contain alphabetic characters and spaces",
+  "wrongPassword": "Wrong password provided.",
+  "userNotFound": "No user found with this email.",
+  "emailAlreadyInUse": "The email is already registered.",
+  "networkRequestFailed": "Network error. Please check your internet connection.",
+  "accountExistsWithDifferentCredential": "An account exists with a different credential.",
+  "invalidCredential": "The email or password is invalid.",
+  "credentialAlreadyInUse": "This credential is already associated with a different account.",
+  "requiresRecentLogin": "Please log in again to perform this operation.",
+  "providerAlreadyLinked": "The provider has already been linked to the user account.",
+  "invalidUserToken": "The user's credential is no longer valid.",
+  "userTokenExpired": "The user's credential has expired.",
+  "invalidPhoneNumber": "The phone number is invalid.",
+  "unexpectedError": "An unexpected error occurred. Please try again later."
 }

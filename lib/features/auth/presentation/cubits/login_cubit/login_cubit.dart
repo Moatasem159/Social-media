@@ -32,7 +32,7 @@ class LoginCubit extends Cubit<LoginStates> {
     if (state is LoginErrorState) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(state.error.message),
+          content: Text(state.error.message.getErrorMessage(context)),
           margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
         ),

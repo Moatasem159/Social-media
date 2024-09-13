@@ -36,7 +36,7 @@ class AppTheme {
     snackBarTheme: const SnackBarThemeData(
       behavior: SnackBarBehavior.floating,
       dismissDirection: DismissDirection.horizontal,
-      elevation: 5,
+      elevation: 10,
     ),
     tabBarTheme: TabBarTheme(
         indicatorColor: AppColor.lightPrimaryColor,
@@ -81,7 +81,7 @@ class AppTheme {
     snackBarTheme: const SnackBarThemeData(
       behavior: SnackBarBehavior.floating,
       dismissDirection: DismissDirection.horizontal,
-      elevation: 5,
+      elevation: 10,
     ),
     tabBarTheme: TabBarTheme(
       indicatorColor: AppColor.darkPrimaryColor,

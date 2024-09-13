@@ -128,7 +128,7 @@ class _SignUpWithEmailState extends State<SignUpWithEmail> {
                   isObscure: _isPasswordObscure,
                 ),
               ),
-              verticalSpace(15),
+              verticalSpace(8),
               BlocBuilder<RegisterCubit, RegisterStates>(
                 builder: (context, state) {
                   if (state is RegisterLoadingState) {
