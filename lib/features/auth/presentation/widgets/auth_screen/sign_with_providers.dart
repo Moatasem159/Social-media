@@ -16,8 +16,6 @@ class SignWithProviders extends StatelessWidget {
       create: (context) => SignWithProviderCubit(
         getIt(),
         getIt(),
-        getIt(),
-        getIt(),
       ),
       child: Builder(
         builder: (context) {
@@ -66,7 +64,9 @@ class SignWithProviders extends StatelessWidget {
                       foregroundColor: Colors.white,
                       iconColor: Colors.white,
                       title: context.locale.loginWithProvider("X"),
-                      onTap: context.read<SignWithProviderCubit>().signWithTwitter),
+                      onTap: context
+                          .read<SignWithProviderCubit>()
+                          .signWithTwitter),
                   verticalSpace(18),
                 ],
               ),

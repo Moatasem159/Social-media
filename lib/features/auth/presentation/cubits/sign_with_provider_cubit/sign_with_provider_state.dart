@@ -15,15 +15,12 @@ final class SetUserDataErrorState extends SignWithProviderStates {
   final ApiError error;
   const SetUserDataErrorState(this.error);
 }
-
-
-
 final class SignWithProviderLoadingState extends SignWithProviderStates {
   const SignWithProviderLoadingState();
 }
 final class SignWithProviderSuccessState extends SignWithProviderStates {
-  final SignWithProviderResponseModel responseModel;
-  const SignWithProviderSuccessState(this.responseModel);
+  final UserCredential userCredential;
+  const SignWithProviderSuccessState(this.userCredential);
 }
 final class SignWithProviderErrorState extends SignWithProviderStates {
   final ApiError error;
