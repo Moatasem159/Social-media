@@ -9,8 +9,6 @@ part of 'app_router.dart';
 List<RouteBase> get $appRoutes => [
       $initialRoute,
       $authRoute,
-      $forgotPasswordRoute,
-      $resetPasswordRoute,
     ];
 
 RouteBase get $initialRoute => GoRouteData.$route(
@@ -38,6 +36,18 @@ extension $InitialRouteExtension on InitialRoute {
 RouteBase get $authRoute => GoRouteData.$route(
       path: '/authRoute',
       factory: $AuthRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'forgotPasswordRoute',
+          factory: $ForgotPasswordRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'resetPasswordRoute',
+              factory: $ResetPasswordRouteExtension._fromState,
+            ),
+          ],
+        ),
+      ],
     );
 
 extension $AuthRouteExtension on AuthRoute {
@@ -57,17 +67,12 @@ extension $AuthRouteExtension on AuthRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $forgotPasswordRoute => GoRouteData.$route(
-      path: '/forgotPasswordRoute',
-      factory: $ForgotPasswordRouteExtension._fromState,
-    );
-
 extension $ForgotPasswordRouteExtension on ForgotPasswordRoute {
   static ForgotPasswordRoute _fromState(GoRouterState state) =>
       ForgotPasswordRoute();
 
   String get location => GoRouteData.$location(
-        '/forgotPasswordRoute',
+        '/authRoute/forgotPasswordRoute',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -80,11 +85,6 @@ extension $ForgotPasswordRouteExtension on ForgotPasswordRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $resetPasswordRoute => GoRouteData.$route(
-      path: '/resetPasswordRoute',
-      factory: $ResetPasswordRouteExtension._fromState,
-    );
-
 extension $ResetPasswordRouteExtension on ResetPasswordRoute {
   static ResetPasswordRoute _fromState(GoRouterState state) =>
       ResetPasswordRoute(
@@ -93,7 +93,7 @@ extension $ResetPasswordRouteExtension on ResetPasswordRoute {
       );
 
   String get location => GoRouteData.$location(
-        '/resetPasswordRoute',
+        '/authRoute/forgotPasswordRoute/resetPasswordRoute',
         queryParams: {
           'email': email,
         },
