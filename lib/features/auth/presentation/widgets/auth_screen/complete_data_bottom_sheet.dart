@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:social_media/core/api/error_handler.dart';
 import 'package:social_media/core/extensions/context_extensions.dart';
 import 'package:social_media/core/extensions/spacing.dart';
 import 'package:social_media/core/utils/input_validation.dart';
 import 'package:social_media/core/widgets/main_button.dart';
+import 'package:social_media/core/widgets/snack_bar.dart';
 import 'package:social_media/features/auth/data/models/user_data_model.dart';
 import 'package:social_media/features/auth/presentation/cubits/sign_with_provider_cubit/sign_with_provider_cubit.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_text_form_field.dart';
@@ -66,13 +68,7 @@ class _CompleteDateBottomSheetState extends State<CompleteDateBottomSheet> {
           //TODO:navigate to home
         }
         if (state is SetUserDataErrorState) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.error.message),
-              margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-            ),
-          );
+          context.showSnackBar(snackBar(state.error.message.getErrorMessage(context)));
         }
       },
       child: PopScope(

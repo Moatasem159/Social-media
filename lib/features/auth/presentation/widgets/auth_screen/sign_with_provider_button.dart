@@ -9,7 +9,6 @@ class SignWithProviderButton extends StatelessWidget {
   final Color? iconColor;
   final String title;
   final String icon;
-  final double width;
   final double height;
 
   const SignWithProviderButton({
@@ -19,7 +18,6 @@ class SignWithProviderButton extends StatelessWidget {
     required this.foregroundColor,
     required this.title,
     required this.icon,
-    this.width = 34,
     this.height = 34,
     this.iconColor,
   });
@@ -40,7 +38,7 @@ class SignWithProviderButton extends StatelessWidget {
           horizontalSpace(50),
           SizedBox(
             height: height,
-            width: width,
+            width: 30,
             child: SvgPicture.asset(
               icon,
               colorFilter: iconColor!=null?ColorFilter.mode(iconColor!, BlendMode.srcIn):null,

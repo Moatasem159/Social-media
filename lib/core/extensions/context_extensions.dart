@@ -17,6 +17,10 @@ extension ThemesExtension on BuildContext {
   TextStyle get titleSmall=>theme.textTheme.titleSmall!;
   TextStyle get headLineSmall=>theme.textTheme.headlineSmall!;
 }
+
+extension FunctionsExtension on BuildContext {
+  showSnackBar(SnackBar snackBar)=>ScaffoldMessenger.of(this).showSnackBar(snackBar);
+}
 ///Extension for app localizations.
 extension LocalizationExtentions on BuildContext {
   AppLocalizations get locale => AppLocalizations.of(this)!;

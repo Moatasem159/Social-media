@@ -6,6 +6,7 @@ import 'package:social_media/core/extensions/spacing.dart';
 import 'package:social_media/core/routing/app_router.dart';
 import 'package:social_media/core/utils/input_validation.dart';
 import 'package:social_media/core/widgets/main_button.dart';
+import 'package:social_media/core/widgets/snack_bar.dart';
 import 'package:social_media/features/auth/presentation/cubits/reset_password_cubit/reset_password_cubit.dart';
 import 'package:social_media/features/auth/presentation/widgets/auth_text_form_field.dart';
 
@@ -44,19 +45,10 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
     return BlocListener<ResetPasswordCubit, ResetPasswordStates>(
       listener: (context, state) {
         if (state is ResetPasswordSuccessState) {
-          ResetPasswordRoute(
-                  email: _emailController.text,
-                  context.read<ResetPasswordCubit>())
-              .push(context);
+          ResetPasswordRoute(email: _emailController.text, context.read<ResetPasswordCubit>()).push(context);
         }
         if (state is ResetPasswordErrorState) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.error.message.getErrorMessage(context)),
-              margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-            ),
-          );
+          context.showSnackBar(snackBar(state.error.message.getErrorMessage(context)));
         }
       },
       child: Form(
